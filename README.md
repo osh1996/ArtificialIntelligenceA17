@@ -1,2 +1,2 @@
 # ArtificialIntelligenceA17
-AI
+AI Project 1
