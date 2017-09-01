@@ -1,11 +1,29 @@
+import Node
+
 f = open("graph.txt", "r")
-l = list()
+nodeList = list()
+edgeList = list()
+
 q = list()
+flag = 0
 for line in f:
-	l.append(line)
-for item in l:
-	q.append(item.split())
-print q
+	if "#" in line:
+		flag = 1
+
+	if flag == 1:
+		nodeList.append(line)
+		print "added " + line + " to nodeList"
+
+	else:
+		edgeList.append(line)
+		print "added " + line + " to edgeList"
+
+
+
+
+#for item in l:
+#	q.append(item.split())
+#print q
 
 #Depth 1st Search
 #Chris
