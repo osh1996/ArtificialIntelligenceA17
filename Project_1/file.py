@@ -1,4 +1,4 @@
-import node
+from node import node
 
 f = open("graph.txt", "r")
 nodeList = list()
@@ -24,11 +24,17 @@ nodeList.remove('########\n')
 
 #print (nodeList)
 #print (edgeList)
-
+nodeObjects = set()
 for item in nodeList:
 	current = item.split()
-	print (current)
-	current[0] = node(current[1])
+	name = current[0]
+	heur = current[1]
+	newNode = node(name, heur)
+	nodeObjects.add(newNode)
+	print (newNode)
+
+
+	#current[0] = node(current[1])
 
 #for item in l:
 #	q.append(item.split())
