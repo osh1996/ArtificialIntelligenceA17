@@ -1,4 +1,4 @@
-import Node
+import node
 
 f = open("graph.txt", "r")
 nodeList = list()
@@ -11,15 +11,24 @@ for line in f:
 		flag = 1
 
 	if flag == 1:
+		
 		nodeList.append(line)
-		print "added " + line + " to nodeList"
+		print ("added " + line + " to nodeList")
 
 	else:
+		
 		edgeList.append(line)
-		print "added " + line + " to edgeList"
+		print ("added " + line + " to edgeList")
 
+nodeList.remove('########\n')
 
+#print (nodeList)
+#print (edgeList)
 
+for item in nodeList:
+	current = item.split()
+	print (current)
+	current[0] = node(current[1])
 
 #for item in l:
 #	q.append(item.split())
