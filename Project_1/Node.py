@@ -5,9 +5,8 @@ class Node:
 		self.heuristic = heuristic
 		self.edges = set()
 
-	def addEdge(node, value):
-		self.edges.append((node, value))
+	def add_edge(self, node, cost):
+		self.edges.add((node, cost))
 
-	def 
 
 

@@ -1,4 +1,4 @@
-from node import node
+from node import Node
 
 f = open("graph.txt", "r")
 nodeList = list()
@@ -9,32 +9,44 @@ flag = 0
 for line in f:
 	if "#" in line:
 		flag = 1
-
-	if flag == 1:
-		
-		nodeList.append(line)
-		print ("added " + line + " to nodeList")
-
 	else:
-		
-		edgeList.append(line)
-		print ("added " + line + " to edgeList")
+		if flag == 1:
+			nodeList.append(line)
+			print ("added " + line + " to nodeList")
 
-nodeList.remove('########\n')
+		else:
+			edgeList.append(line)
+			print ("added " + line + " to edgeList")
 
 #print (nodeList)
 #print (edgeList)
-nodeObjects = set()
+nodeObjects = []
 for item in nodeList:
 	current = item.split()
 	name = current[0]
 	heur = current[1]
-	newNode = node(name, heur)
-	nodeObjects.add(newNode)
+	newNode = Node(name, heur)
+	nodeObjects.append(newNode)
 	print (newNode)
-
-
 	#current[0] = node(current[1])
+
+for item in edgeList:
+	current = item.split()
+	firstNodeName = current[0]
+	secondNodeName = current[1]
+	length = current[2]
+
+	firstNode = 0
+	secondNode = 0
+	for node in nodeObjects:
+		if node.name is firstNodeName:
+			firstNode = node
+		if node.name is secondNodeName:
+			secondNode = node
+
+	firstNode.add_edge(secondNode, length)
+	secondNode.add_edge(firstNode, length)
+
 
 #for item in l:
 #	q.append(item.split())
