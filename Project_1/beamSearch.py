@@ -1,11 +1,22 @@
 def beamSearch(nodeList, start, goal):
-	queue = [ "start"]
+	queue = list()
+	queue.append(start)
+	path = list()
+	print("Beam Search (w=2)")
 	while queue:
-		if queue.pop(0) == goal:
-			yield path + queue.pop()
+		firstnode = queue.pop(0)
+		if firstnode == goal:
+			return path + queue.pop()
 		else:
-			children = queue.pop(0).nextnode
-			#Need to work on how nodelists actually work
+			children = list()
+			firstnode.edges
 			queue.append(children)
-			if len(queue)>2:
-				queue.pop()
+			return
+			#checks if the queue is larger than w, and removes the highest cost paths until it is the size of w
+			while len(queue)>2:
+				
+def removeCost(edges)
+	noCostList = list()
+	for item in edges:
+		noCostlist.append(edges[0])
+	return noCostList()
