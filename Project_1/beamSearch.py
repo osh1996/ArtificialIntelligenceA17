@@ -3,16 +3,17 @@ def beamSearch(nodeList, start, goal):
 	path = list[]
 	print("Beam Search (w=2)")
 	while queue:
-		#print current list
 		parent = findMin(queue)
 		queue.remove(parent)
 		parentName = removeCost(parent)
-		path.append(parent[1],parent[0])
-		if firstnode == goal:
-			return done
+		path.append(parent[1],parentName)
+		print(path)
+		if parentName == goal:
+			print(path)
+			return 
 		else:
 			children = list[]
-			children = firstnode.edges
+			children = getNeigh(parent)
 			for item in children:
 				queue.append(edges(1),edges(0),parentName)
 			#checks if the queue is larger than w, and removes the highest cost paths until it is the size of w
