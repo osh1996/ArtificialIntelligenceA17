@@ -1,5 +1,5 @@
-from node import node
-
+from node import nod
+e
 f = open("graph.txt", "r")
 nodeList = list()
 edgeList = list()
@@ -22,23 +22,19 @@ for line in f:
 
 nodeList.remove('########\n')
 
-#print (nodeList)
-#print (edgeList)
+
 nodeObjects = set()
+#do we need to add goal with a value of zero
 for item in nodeList:
 	current = item.split()
 	name = current[0]
-	heur = current[1]
+	heur = current[1]git 
 	newNode = node(name, heur)
 	nodeObjects.add(newNode)
 	print (newNode)
 
 
-	#current[0] = node(current[1])
 
-#for item in l:
-#	q.append(item.split())
-#print q
 
 #Depth 1st Search
 #Chris

@@ -1,0 +1,21 @@
+import Queue
+q = Queue.LifoQueue(maxsize=0)
+
+def dfs(start, q):
+	q.put_nowait(start)
+	if not any(start.edges):
+		edges = start.edges
+		q.put_nowait(start)
+		dfs(q.get_nowait(), q)
+	else:
+		if(q.empty):
+			return 0
+		else:
+			dfs(q.get_nowait(), q)
+
+
+		
+
+
+
+

@@ -4,6 +4,6 @@ class node:
 		self.heuristic = heuristic
 		self.name = name
 		self.edges = set()
-		
-	def add_edge(self, node, cost):
+
+	def add_edge(node, cost):
 		self.edges.add((node, cost))
