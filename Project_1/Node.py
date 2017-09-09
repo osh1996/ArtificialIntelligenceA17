@@ -13,6 +13,11 @@ class Node:
 	
 	def get_cost(self, from_node, to_node):
 		return self.heuristic[(from_node + to_node)]
-
+#removes the cost from the edge
+	def removeCost(edges)
+		noCostList = list[]
+		for item in edges:
+			noCostlist.append(edges[0])
+		return noCostList
 
 
