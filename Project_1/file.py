@@ -20,7 +20,7 @@ for line in f:
 
 #print (nodeList)
 #print (edgeList)
-nodeObjects = []
+nodeObjects = list()
 for item in nodeList:
 	current = item.split()
 	name = current[0]
@@ -46,6 +46,7 @@ for item in edgeList:
 
 	firstNode.add_edge(secondNode, length)
 	secondNode.add_edge(firstNode, length)
+
 
 
 #for item in l:
