@@ -1,12 +1,13 @@
 from node import Node
+from utility import 
 
 class depthLimitSearch:
 
 	#need to implement function for finding a node in nodeObjects given a name
 	def depthLimitSearch(self, nodeObjects, startNode, goalNode, limit):
 		self.nodeObjects = nodeObjects
-		self.startNode = startNode
-		self.goalNode = goalNode
+		self.startNode = getNode(startNode, nodeObjects)
+		self.goalNode = getNode(goalNode, nodeObjects)
 
 		recurseDepthLimitSearch(self.startNode, limit)
 

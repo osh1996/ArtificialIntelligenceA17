@@ -1,3 +1,4 @@
+from utility import getNode
 
 #just make a greedy choice each step based on the heuristic of each node
 
@@ -5,8 +6,8 @@ class greedySearch:
 
 	def greedySearch(self, nodeObjects, startNode, goalNode):
 		self.nodeObjects = nodeObjects
-		self.startNode = startNode
-		self.goalNode = goalNode
+		self.startNode = getNode(startNode,nodeObjects)
+		self.goalNode = getNode(goalNode,nodeObjects)
 
 		recursiveGreedySearch(startNode)
 
@@ -19,6 +20,11 @@ class greedySearch:
 				child = edge[0]
 				if nextNode is 0:
 					nextNode = child
-				else if child.heuristic < nextNode
+				else if child.heuristic < nextNode.heuristic:
+					nextNode = child
+				else if child.heuristic == nextNode.heuristic:			#tiebreak using alphabetical order of names
+					if child.name < nextNode.name:
+						nextNode = child
+			recursiveGreedySearch(nextNode)
 
 
