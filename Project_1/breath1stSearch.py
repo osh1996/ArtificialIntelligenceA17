@@ -1,11 +1,18 @@
 def breath1stSearch(nodeList, start, goal):
-	queue = [(start, [start])]
+	queue = [(start)]
+	path = set([])
+	print("Breath First Search")
 	while queue:
-		(node, path) = queue.pop(0)
-		for next in nodeList(node) - set(path):
+		node = queue.pop(0)
+		path.add(node[1])
+		print(path)
+		path.add(sorted(getNeigh(node)))
+		for edge in set[path]:
+			print(path)
 			if next == goal:
-				yield path + [next]
+				path.add(next)
+				print(path)
 			else:
 				queue.append((next, path + [next]))
-list(bfs_paths(graph, 'S', 'G'))
-print "Breath First Search"
+				queue.sort()
+
