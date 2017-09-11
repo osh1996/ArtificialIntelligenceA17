@@ -1,5 +1,6 @@
 from node import Node
 from utility import getNode
+import depthFirstSearch
 
 f = open("graph.txt", "r")
 nodeList = list()
@@ -52,7 +53,20 @@ for item in edgeList:
 	firstNode.add_edge(secondNode, length)
 	secondNode.add_edge(firstNode, length)
 
-## call all search functions ;)
+
+dfs = depthFirstSearch(startNode, goalNode)
+dfsResult = dfs.depthFirstSearchFn()
+##print(dfsResult)
+
+bfs = breadthFirstSearch(startNode, goalNode)
+bfsResult = bfs.breadthFirstSearchFn()
+
+dlsLimit = 2
+dls = depthLimitSearch(startNode, goalNode, dlsLimit)		
+dlsResult = depthLimitSearchFn()
+
+ids = iterativeDeepeningSearch(startNode, goalNode)
+
 
 #Depth 1st Search
 #Chris

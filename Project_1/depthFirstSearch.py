@@ -5,10 +5,9 @@ import Queue
 
 class depthFirstSearch:
 
-	def __init__(self, nodeObjects, startNode, goalNode):
-		self.nodeObjects = nodeObjects
-		self.startNode = startNode, nodeObjects
-		self.goalNode = goalNode, nodeObjects
+	def __init__(self, startNode, goalNode):
+		self.startNode = startNode
+		self.goalNode = goalNode
 
 
 	def depthFirstSearchFn(self)

@@ -5,8 +5,7 @@ import Queue
 
 class depthLimitSearch:
 
-	def __init__(self, nodeObjects, startNode, goalNode, limit):
-		self.nodeObjects = nodeObjects
+	def __init__(self, startNode, goalNode, limit):
 		self.startNode = startNode
 		self.goalNode = goalNode
 		self.limit = limit

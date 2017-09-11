@@ -1,18 +1,22 @@
-from queue import PriorityQueue
+from node import Node
+from utility import getNode
+from generalSearch import generalSearch
+import Queue
 
-def uniformCostSearch(nodeList, start, goal)
-	visited = set()
-	queue = PriorityQueue()
-	queue.put((start.heuristic,start))
-	while queue:
-		cost, node = queue.get()
-			if node not in visited:
-				visited.add(node)
-				if node == goal:
-					finalPath.append[total_cost, visited]
-					return finalPath
-				for i in graph.neighbors(node):
-					if i not in visited:
-						total_cost = cost + graph.get_cost(node, i)
-						queue.put((total_cost, i))
+class uniformCostSearch:
+
+	def __init__(self, nodeObjects, startNode, goalNode):
+		self.nodeObjects = nodeObjects
+		self.startNode = startNode
+		self.goalNode = goalNode
+
+
+	def uniformCostSearchFn(self)
+		ucsQueue = Queue(maxsize=0)
+		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		initQueueTuple = (0, startNodeQueueItem)
+		ucsQueue.put_nowait(initQueueTuple)
+
+		result = generalSearch("uniform cost", ucsQueue)
+		return result
 					

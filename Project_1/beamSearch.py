@@ -1,36 +1,22 @@
-def beamSearch(nodeList, start, goal)
-	print("Beam Search (w=2)"):
-	totalcost = int()
-	queue = list[start]
-	while queue:
-		parent = findMin(queue)
-		queue.remove(parent)
-		if parent == goal:
-			return 
-		else:
-			children = list[]
-			children = parent.edges
-			for item in children:
-				totalcost = parent(0) +item[2]
-				queue.append(item)
-			#checks if the queue is larger than 
-			#w, and removes the highest cost paths until it is the size of w
-			while len(queue)>2:
-				remove(findMax(queue))
-				
+from node import Node
+from utility import getNode
+from Queue import PriorityQueue
+from generalSearch import generalSearch
 
-#finds the path with the highest cost
-def findMax(listoflists)
-	max = 0;
-	for item in listoflists
-		if item[0] > max:
-			item[0] = max
-	return max
+#just make a greedy choice each step based on the heuristic of each node
 
-#finds path with the lowest cost
-def findMin(listoflists)
-	min = 0;
-	for item in listoflists
-		if item[0] > min:
-			item[0] = min
-	return min
+class beamSearch:
+
+	def __init__(self, nodeObjects, startNode, goalNode):
+		self.nodeObjects = nodeObjects
+		self.startNode = startNode
+		self.goalNode = goalNode
+
+	def beamSearchFn(self):
+		beamQueue = PriorityQueue(maxsize=0)
+		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
+		beamQueue.put_nowait(initQueueTuple)
+
+		result = generalSearch("beam", beamQueue)
+		return result

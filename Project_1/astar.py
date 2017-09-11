@@ -1,22 +1,21 @@
+from node import Node
+from utility import getNode
 from Queue import PriorityQueue
+from generalSearch import generalSearch
 
-q = PriorityQueue(maxsize=0)
-visited = set()
-def astar(node, q, cost = 0, visited = None):
-	
-	visited.add(node) #add node to visited set
+#just make a greedy choice each step based on the heuristic of each node
 
-	if(node is goal): #goal test
-		return True
-	
-	else:
-		edges = list(node.edges)
-		for item in edges:
-			priority = item[0].heuristic + item[1] + cost #adds the heuristic of the item +  path weight + total cost so far
-			q.put((priority,item)) #places all edges in priorityqueue prioritized by lowest f(n)
+class aStarSearch:
 
-		if q.empty(): # if q empty failed
-			return False
-		
-		next_node = q.pop() # gets lowest cost q
-		astar(next_node[1], q, next_node[0], visited) #recurse on next node using cost = priority of that node
+	def __init__(self, nodeObjects, startNode, goalNode):
+		self.nodeObjects = nodeObjects
+		self.startNode = startNode
+		self.goalNode = goalNode
+
+	def aStarSearchFn(self):
+		astarQueue = PriorityQueue(maxsize=0)
+		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
+		astarQueue.put_nowait(initQueueTuple)
+
+		generalSearch("astar", astarQueue)

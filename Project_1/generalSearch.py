@@ -23,6 +23,8 @@ def calculateValue(queueItem, searchMethod):
 		output = queueItem.node.heuristic + queueItem.pathCost
 	if searchMethod == "beam":
 		output = queueItem.node.heuristic
+	if searchMethod == "hill climbing"
+		output = queueItem.node.heuristic
 	return output
 
 
@@ -44,11 +46,15 @@ def generalSearch(method, initQueue):
 				newActionTuple = (calculateValue(newAction, method), newAction)
 				queue.put_nowait(newActionTuple)
 				visited.add(newActionTuple)
-			if method == "beam":
-				first = queue.pop()
-				second = queue.pop()
-				queue = PriorityQueue(maxsize=0)
-				queue.put_nowait(first)
-				queue.put_nowait(second)
+		if method == "beam":
+			first = queue.pop()
+			second = queue.pop()
+			queue = PriorityQueue(maxsize=0)
+			queue.put_nowait(first)
+			queue.put_nowait(second)
+		if method == "hill climbing":
+			first = queue.pop()
+			queue = PriorityQueue(maxsize=0)
+			queue.put_nowait(first)
 		return "fail"
 

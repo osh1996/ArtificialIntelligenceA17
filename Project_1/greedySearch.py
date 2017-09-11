@@ -18,7 +18,8 @@ class greedySearch:
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		greedyQueue.put_nowait(initQueueTuple)
 
-		generalSearch("greedy", greedyQueue)
+		result = generalSearch("greedy", greedyQueue)
+		return result
 		
 
 
