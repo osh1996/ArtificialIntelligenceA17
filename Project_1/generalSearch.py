@@ -3,7 +3,7 @@ import queueItem
 from node import Node
 
 
-def generalSearch(self, method, initQueue)
+def generalSearch(self, method, initQueue):
 	goalNodeName = "G"
 	queue = initQueue
 	visited = set()
