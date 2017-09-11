@@ -1,5 +1,7 @@
 from node import Node
-from utility import 
+from utility import getNode
+from generalSearch import generalSearch
+import Queue
 
 class depthLimitSearch:
 
@@ -9,7 +11,12 @@ class depthLimitSearch:
 		self.startNode = getNode(startNode, nodeObjects)
 		self.goalNode = getNode(goalNode, nodeObjects)
 
-		recurseDepthLimitSearch(self.startNode, limit)
+		dlsQueue = LifoQueue(maxsize=0)
+		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem.value = limit
+		dlsQueue.put_nowait(startNodeQueueItem)
+
+		generalSearch("depth limited", dlsQueue)
 
 
 	def recurseDepthLimitSearch(self, node, limit):
