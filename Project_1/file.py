@@ -28,7 +28,9 @@ for item in nodeList:
 	newNode = Node(name, heur)
 	nodeObjects.append(newNode)
 	print (newNode)
-	#current[0] = node(current[1])
+
+goalNode = Node("G", 0)
+nodeObjects.append(goalNode)
 
 for item in edgeList:
 	current = item.split()
@@ -46,12 +48,6 @@ for item in edgeList:
 
 	firstNode.add_edge(secondNode, length)
 	secondNode.add_edge(firstNode, length)
-
-
-
-#for item in l:
-#	q.append(item.split())
-#print q
 
 #Depth 1st Search
 #Chris
