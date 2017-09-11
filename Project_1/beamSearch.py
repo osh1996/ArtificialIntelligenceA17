@@ -1,27 +1,23 @@
-def beamSearch(nodeList, start, goal):
-	queue = list[list[start]]
-	print("Beam Search (w=2)")
+def beamSearch(nodeList, start, goal)
+	print("Beam Search (w=2)"):
+	totalcost = int()
+	queue = list[start]
 	while queue:
-		print(queue)
 		parent = findMin(queue)
 		queue.remove(parent)
-		if parentName == goal:
-			print(parent)
+		if parent == goal:
 			return 
-		parentName = removeCost(parent)
 		else:
 			children = list[]
-			children = getNeigh(parent)
+			children = parent.edges
 			for item in children:
-				queue.append(item(1),item(0),parentName)
-				print(queue)
+				totalcost = parent(0) +item[2]
+				queue.append(item)
 			#checks if the queue is larger than 
-			w, and removes the highest cost paths until it is the size of w
+			#w, and removes the highest cost paths until it is the size of w
 			while len(queue)>2:
 				remove(findMax(queue))
 				
-				
-
 
 #finds the path with the highest cost
 def findMax(listoflists)
