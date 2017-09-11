@@ -1,0 +1,27 @@
+S A 2
+S B	1
+A C 1
+A D 3
+C F 1
+C L 1
+F I 1
+L J 1
+D M 1
+M O 1
+O G 1
+B E 5
+E H 1
+H K 1
+G K 4
+####
+S 4
+A 1
+B 1
+C 1
+E 5
+F 1
+H 1
+I 1
+J 1
+K 1
+O 3
