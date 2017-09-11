@@ -11,7 +11,6 @@ def breath1stSearch(nodeList, start, goal):
 			print(path)
 			if next == goal:
 				path.add(next)
-				print(path)
 			else:
 				queue.append((next, path + [next]))
 				queue.sort()
