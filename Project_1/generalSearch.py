@@ -2,13 +2,11 @@ import Queue
 
 class GeneralSearch:
 	
-	def generalSearch(self, startNode, queueType):
-		startNodeName = "S"
+	def generalSearch(self, currentNode, queue):
 		goalNodeName = "G"
 
-		queue = queueType
-		queue.put_nowait(startNode)
-		visited = set()
+#		queue.put_nowait(startNode)
+#		visited = set()
 
 		if(queue):
 			node = queue.pop()
