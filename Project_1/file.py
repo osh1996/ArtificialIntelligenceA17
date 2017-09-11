@@ -1,4 +1,5 @@
 from node import Node
+from utility import getNode
 
 f = open("graph.txt", "r")
 nodeList = list()
@@ -48,6 +49,10 @@ for item in edgeList:
 
 	firstNode.add_edge(secondNode, length)
 	secondNode.add_edge(firstNode, length)
+
+startNode = getNode("S")
+
+## call all search functions ;)
 
 #Depth 1st Search
 #Chris

@@ -1,17 +1,18 @@
-from Queue import PriorityQueue
+import Queue
 
 class GeneralSearch:
 	
-	def generalSearch(self, nodeObjects, method, queueType):
-		startNodeName = 'S'
-		goalNodeName = 'G'
+	def generalSearch(self, startNode, method, queueType):
+		startNodeName = "S"
+		goalNodeName = "G"
 
 		queue = queueType
-		loopDone = false
+		queue.put_nowait(startNode)
 		visited = set()
+
 		while(queue):
 			node = queue.pop()
-			if node.name == goalNodeName
+			if node.name == goalNodeName:
 				return node
 			visited.add(node)
 			openedNodes = node.expand()
