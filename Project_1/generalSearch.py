@@ -1,8 +1,9 @@
 import Queue
+import queueItem
 
 class GeneralSearch:
 	
-	def generalSearch(self, currentNode, queue):
+	def generalSearch(self, currentNode, queue)
 		goalNodeName = "G"
 
 #		queue.put_nowait(startNode)
