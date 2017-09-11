@@ -1,3 +1,4 @@
+from node import Node
 from utility import getNode
 
 #just make a greedy choice each step based on the heuristic of each node
