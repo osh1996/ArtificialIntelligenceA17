@@ -1,5 +1,5 @@
 from node import Node
-from utility import getNode
+import utility
 from Queue import PriorityQueue
 from generalSearch import generalSearch
 
@@ -16,6 +16,7 @@ class greedySearch:
 		startNodeQueueItem = QueueItem(self.startNode, null, 0)
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		greedyQueue.put_nowait(initQueueTuple)
+		printLabels()
 
 		result = generalSearch("greedy", greedyQueue)
 		return result

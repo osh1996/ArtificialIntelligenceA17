@@ -1,5 +1,5 @@
 from node import Node
-from utility import getNode
+import utility
 from Queue import PriorityQueue
 from generalSearch import generalSearch
 
@@ -16,5 +16,6 @@ class aStarSearch:
 		startNodeQueueItem = QueueItem(self.startNode, null, 0)
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		astarQueue.put_nowait(initQueueTuple)
+		printLabels()
 
 		generalSearch("astar", astarQueue)

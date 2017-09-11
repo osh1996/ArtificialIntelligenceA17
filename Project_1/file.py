@@ -1,5 +1,5 @@
 from node import Node
-from utility import getNode
+import utility
 import depthFirstSearch
 import breadthFirstSearch
 import depthLimitSearch
@@ -61,35 +61,46 @@ for item in edgeList:
 	firstNode.add_edge(secondNode, length)
 	secondNode.add_edge(firstNode, length)
 
+outputFile = open("output.txt", 'w')
+outputFile.write("\tSearch Algorithm Output\n\n")
+outputFile.close()
 
 dfs = depthFirstSearch(startNode, goalNode)
 dfsResult = dfs.depthFirstSearchFn()
-##print(dfsResult)
+printResult(dfsResult)
 
 bfs = breadthFirstSearch(startNode, goalNode)
 bfsResult = bfs.breadthFirstSearchFn()
+printResult(bfsResult)
 
 dlsLimit = 2
 dls = depthLimitSearch(startNode, goalNode, dlsLimit)		
 dlsResult = depthLimitSearchFn()
+printResult(dlsResult)
 
 ids = iterativeDeepeningSearch(startNode, goalNode)
 idsResult = iterativeDeepeningSearchFn()
+printResult(idsResult)
 
 ucs = uniformCostSearch(startNode, goalNode)
 ucsResult = uniformCostSearchFn()
+printResult(ucsResult)
 
 greedy = greedySearch(startNode, goalNode)
 greedyResult = greedySearchFn()
+printResult(greedyResult)
 
 astar = astarSearch(startNode, goalNode)
 astarResult = aStarSearchFn()
+printResult(astarResult)
 
 hcs = hillClimbingSearch(startNode, goalNode)
 hcsResult = hillClimbingSearchFn()
+printResult(hcsResult)
 
 beam = beamSearch(startNode, goalNode)
 beamResult = beamSearchFn()
+printResult(beamResult)
 
 
 #Depth 1st Search

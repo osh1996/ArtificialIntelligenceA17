@@ -1,5 +1,5 @@
 from node import Node
-from utility import getNode
+import utility
 from generalSearch import generalSearch
 import Queue
 

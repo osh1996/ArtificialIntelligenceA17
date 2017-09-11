@@ -1,5 +1,6 @@
 import Queue
 import queueItem
+import utility
 from node import Node
 
 	# returns a set of all outgoing edges from a given node
@@ -23,7 +24,7 @@ def calculateValue(queueItem, searchMethod):
 		output = queueItem.node.heuristic + queueItem.pathCost
 	if searchMethod == "beam":
 		output = queueItem.node.heuristic
-	if searchMethod == "hill climbing"
+	if searchMethod == "hill climbing":
 		output = queueItem.node.heuristic
 	return output
 
@@ -46,6 +47,7 @@ def generalSearch(method, initQueue):
 				newActionTuple = (calculateValue(newAction, method), newAction)
 				queue.put_nowait(newActionTuple)
 				visited.add(newActionTuple)
+				queue = printQueueState(queue)
 		if method == "beam":
 			first = queue.pop()
 			second = queue.pop()
