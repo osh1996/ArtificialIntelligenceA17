@@ -7,8 +7,7 @@ from generalSearch import generalSearch
 
 class hillClimbingSearch:
 
-	def __init__(self, nodeObjects, startNode, goalNode):
-		self.nodeObjects = nodeObjects
+	def __init__(self, startNode, goalNode):
 		self.startNode = startNode
 		self.goalNode = goalNode
 

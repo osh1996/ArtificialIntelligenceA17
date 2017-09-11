@@ -1,6 +1,14 @@
 from node import Node
 from utility import getNode
 import depthFirstSearch
+import breadthFirstSearch
+import depthLimitSearch
+import iterativeDeepeningSearch
+import uniformCostSearch
+import greedySearch
+import aStarSearch
+import beamSearch
+import hillClimbingSearch
 
 f = open("graph.txt", "r")
 nodeList = list()
@@ -66,6 +74,22 @@ dls = depthLimitSearch(startNode, goalNode, dlsLimit)
 dlsResult = depthLimitSearchFn()
 
 ids = iterativeDeepeningSearch(startNode, goalNode)
+idsResult = iterativeDeepeningSearchFn()
+
+ucs = uniformCostSearch(startNode, goalNode)
+ucsResult = uniformCostSearchFn()
+
+greedy = greedySearch(startNode, goalNode)
+greedyResult = greedySearchFn()
+
+astar = astarSearch(startNode, goalNode)
+astarResult = aStarSearchFn()
+
+hcs = hillClimbingSearch(startNode, goalNode)
+hcsResult = hillClimbingSearchFn()
+
+beam = beamSearch(startNode, goalNode)
+beamResult = beamSearchFn()
 
 
 #Depth 1st Search

@@ -10,10 +10,14 @@ class iterativeDeepeningSearch:
 		self.startNode = startNode
 		self.goalNode = goalNode
 
-	def iterativeSearchFn(self)
+	def iterativeDeepeningSearchFn(self)
+		result = "start"
 		for i in to_infinity():
 			result = depthLimitSearch(self.nodeObjects, self.startNode, self.goalNode, i)
-			return result
+			if result == "G":
+				return result
+		if result == "fail" or result == "start":
+			return "fail"
 	
 	def to_infinity(self):
     	index=0
