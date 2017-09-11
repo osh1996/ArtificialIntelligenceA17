@@ -2,7 +2,7 @@ import Queue
 
 class GeneralSearch:
 	
-	def generalSearch(self, startNode, method, queueType):
+	def generalSearch(self, startNode, queueType):
 		startNodeName = "S"
 		goalNodeName = "G"
 
@@ -10,15 +10,14 @@ class GeneralSearch:
 		queue.put_nowait(startNode)
 		visited = set()
 
-		while(queue):
+		if(queue):
 			node = queue.pop()
 			if node.name == goalNodeName:
-				return node
-			visited.add(node)
+				return "G"
 			openedNodes = node.expand()
-			for move in openedNodes:
+			for action in openedNodes:
 				queue.put_nowait(move)
-		return "fail"
+		
 
 	def expand(self, node):
 		possibleMoves = set()
