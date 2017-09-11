@@ -18,6 +18,7 @@ for line in f:
 		else:
 			edgeList.append(line)
 			print ("added " + line + " to edgeList")
+f.close()
 
 #print (nodeList)
 #print (edgeList)
@@ -30,6 +31,7 @@ for item in nodeList:
 	nodeObjects.append(newNode)
 	print (newNode)
 
+startNode = getNode("S", nodeObjects)
 goalNode = Node("G", 0)
 nodeObjects.append(goalNode)
 
@@ -49,8 +51,6 @@ for item in edgeList:
 
 	firstNode.add_edge(secondNode, length)
 	secondNode.add_edge(firstNode, length)
-
-startNode = getNode("S")
 
 ## call all search functions ;)
 

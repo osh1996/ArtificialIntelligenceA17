@@ -1,13 +1,23 @@
-def iterativeDeepeningSearch(node):
-	i = 0
-	for i in to_infinity():
-		depthLimitedSearch(node, i)
+from node import Node
+from utility import getNode
+from generalSearch import generalSearch
+import Queue
+import depthLimitSearch
 
+class iterativeDeepeningSearch:
 
+	def __init__(self, nodeObjects, startNode, goalNode):
+		self.nodeObjects = nodeObjects
+		self.startNode = startNode
+		self.goalNode = goalNode
 
-
-def to_infinity():
-    index=0
-    while 1:
-        yield index
-        index += 1
+	def iterativeSearchFn(self)
+		for i in to_infinity():
+			result = depthLimitSearch(self.nodeObjects, self.startNode, self.goalNode, i)
+			return result
+	
+	def to_infinity(self):
+    	index=0
+    	while 1:
+       		yield index
+        	index += 1

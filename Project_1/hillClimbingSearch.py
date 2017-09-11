@@ -1,10 +1,10 @@
 
 class hillClimbingSearch:
 
-	def hillClimbingSearch(nodeObjects, startNode, goalNode):
+	def hillClimbingSearch(self, nodeObjects, startNode, goalNode):
 		self.nodeObjects = nodeObjects
-		self.startNode = getNode(startNode, nodeObjects)
-		self.goalNode = getNode(startNode, nodeObjects)
+		self.startNode = startNode, nodeObjects
+		self.goalNode = startNode, nodeObjects
 
 		recursiveHillClimbing(self.startNode)
 

@@ -2,27 +2,8 @@ import Queue
 import queueItem
 from node import Node
 
-
-def generalSearch(self, method, initQueue):
-	goalNodeName = "G"
-	queue = initQueue
-	visited = set()
-	while(queue):
-		currNode = queue.pop()
-		if currNode.node.name == goalNodeName:
-			return "G"
-		openedNodes = self.expand(currNode)
-		for action in openedNodes:
-			totalPathCost = currNode.pathCost + currNode.get_edge(action)[1]
-			newAction = queueItem(action, currNode, totalPathCost)
-			newAction.value = calculateValue(newAction, method)
-			queue.put_nowait(newAction)
-			visited.add(newAction)
-		return "fail"
-		
-
 	# returns a set of all outgoing edges from a given node
-def expand(self, node):
+def expand(node):
 	possibleMoves = set()
 	for edge in node.edges:
 		adjacentNode = edge[0]
@@ -30,7 +11,7 @@ def expand(self, node):
 	return possibleMoves
 
 	# calculates f(n) for the given node in the search based on the algorithm used
-def calculateValue(self, queueItem, searchMethod):
+def calculateValue(queueItem, searchMethod):
 	output = "uninformed"
 	if searchMethod == "depth limited":
 		output = (queueItem.prevNode.value) - 1
@@ -43,4 +24,31 @@ def calculateValue(self, queueItem, searchMethod):
 	if searchMethod == "beam":
 		output = queueItem.node.heuristic
 	return output
+
+
+def generalSearch(method, initQueue):
+	goalNodeName = "G"
+	queue = initQueue
+	visited = set()
+	while(queue):
+		currQueueTuple = queue.pop()
+		currQueueItem = currQueueTuple[1]
+
+		if currQueueItem.node.name == goalNodeName:
+			return "G"
+		openedNodes = expand(currQueueItem.node)
+		for action in openedNodes:
+			if method != "depth limited" or currNode.value != 0:
+				totalPathCost = currQueueItem.pathCost + currQueueItem.node.get_edge(action)[1]
+				newAction = queueItem(action, currNode, totalPathCost)
+				newActionTuple = (calculateValue(newAction, method), newAction)
+				queue.put_nowait(newActionTuple)
+				visited.add(newActionTuple)
+			if method == "beam":
+				first = queue.pop()
+				second = queue.pop()
+				queue = PriorityQueue(maxsize=0)
+				queue.put_nowait(first)
+				queue.put_nowait(second)
+		return "fail"
 
