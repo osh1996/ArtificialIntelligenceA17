@@ -1,5 +1,5 @@
 from node import Node
-import utility
+from utility import printLabelsIDS
 from generalSearch import generalSearch
 import Queue
 import depthLimitSearch
@@ -13,7 +13,7 @@ class iterativeDeepeningSearch:
 	def iterativeDeepeningSearchFn(self):
 		result = "start"
 		for i in range(0,100):
-			result = depthLimitSearch(self.nodeObjects, self.startNode, self.goalNode, i)
+			result = depthLimitSearch.depthLimitSearch(self.startNode, self.goalNode, i)
 			printLabelsIDS(i)
 			if result == "G":
 				return result

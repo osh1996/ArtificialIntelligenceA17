@@ -15,7 +15,7 @@ def printLabels():
 	## print labels for Iterative Deepening (displays current iteration)
 def printLabelsIDS(limit):
 	file = open("output.txt", 'a')
-	labels = "\tExpanded\tQueue\nL=" + limit + "\t"
+	labels = "\tExpanded\tQueue\nL=" + str(limit) + "\t"
 	file.write(labels)
 	file.close()
 
@@ -33,8 +33,8 @@ def printQueueState(queue):
 		queueTuple = queue.get_nowait()
 		print(queueTuple[0])
 		if(queueTuple[0] != -1):
-			outputText += queueTuple[0]
-		printPrevNodes(queueTuple[1])
+			outputText += str(queueTuple[0])
+		printPrevNodes(queueTuple)
 		newQueue.put_nowait(queueTuple)
 
 	outputText += "]\n"
@@ -42,14 +42,14 @@ def printQueueState(queue):
 	file.close()
 	return newQueue
 
-def printPrevNodes(currQueueItem):
+def printPrevNodes(currQueueTuple):
 	file = open("output.txt", 'a')
-	outputText = "<" + currQueueItem.node.name
+	outputText = "<" + currQueueTuple[1].node.name
 	
-	currNode = currQueueItem.prevNode[1]
+	currNode = currQueueTuple[1].prevNode
 	while(currNode != -999):
-		outputText = outputText + "," + currNode.node.name
-		currNode = currNode.prevNode[1]
+		outputText = outputText + "," + currNode[1].node.name
+		currNode = currNode[1].prevNode
 	
 	outputText = outputText + "> "
 	file.write(outputText)

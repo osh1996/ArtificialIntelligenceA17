@@ -1,7 +1,8 @@
 from node import Node
-import utility
+from utility import printLabels
 from generalSearch import generalSearch
-import Queue
+from Queue import Queue
+from queueItem import QueueItem
 
 class uniformCostSearch:
 
@@ -15,6 +16,7 @@ class uniformCostSearch:
 		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (0, startNodeQueueItem)
 		ucsQueue.put_nowait(initQueueTuple)
+		printLabels()
 
 		result = generalSearch("uniform cost", ucsQueue)
 		return result
