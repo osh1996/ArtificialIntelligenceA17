@@ -4,17 +4,17 @@ from node import Node
 
 	# returns a set of all outgoing edges from a given node
 def expand(node):
-	possibleMoves = set()
+	possibleMoves = list()
 	for edge in node.edges:
 		adjacentNode = edge[0]
-		possibleMoves.add(adjacentNode)
+		possibleMoves.append(adjacentNode)
 	return possibleMoves
 
 	# calculates f(n) for the given node in the search based on the algorithm used
 def calculateValue(queueItem, searchMethod):
-	output = "uninformed"
+	output = -1
 	if searchMethod == "depth limited":
-		output = (queueItem.prevNode.value) - 1
+		output = (queueItem.prevNode[0]) - 1
 	if searchMethod == "uniform cost":
 		output = queueItem.pathCost
 	if searchMethod == "greedy":
@@ -31,32 +31,29 @@ def calculateValue(queueItem, searchMethod):
 def generalSearch(method, initQueue):
 	goalNodeName = "G"
 	queue = initQueue
-	visited = set()
 	while(queue):
-		currQueueTuple = queue.get_nowait()
+		currQueueTuple = queue.get()
 		currQueueItem = currQueueTuple[1]
 		print(currQueueItem.node.name)
 		if currQueueItem.node.name == goalNodeName:
 			return "G"
 		openedNodes = expand(currQueueItem.node)
 		for action in openedNodes:
-			if method != "depth limited" or currNode.value != 0:
+			if method != "depth limited" or currQueueTuple[0] != 0:
 				totalPathCost = currQueueItem.pathCost + currQueueItem.node.get_edge(action)[1]
-				newAction = QueueItem(action, currQueueItem, totalPathCost)
-				newActionTuple = (calculateValue(newAction, method), newAction)
-				print(newAction.node.name)
+				newAction = QueueItem(action, currQueueTuple, totalPathCost)
+				newActionValue = calculateValue(newAction, method)
+				newActionTuple = (newActionValue, newAction)
 				queue.put_nowait(newActionTuple)
-				visited.add(newActionTuple)
-				print
 				queue = printQueueState(queue)
 		if method == "beam":
-			first = queue.get_nowait()
-			second = queue.get_nowait()
+			first = queue.get()
+			second = queue.get()
 			queue = PriorityQueue(maxsize=0)
 			queue.put_nowait(first)
 			queue.put_nowait(second)
 		if method == "hill climbing":
-			first = queue.get_nowait()
+			first = queue.get()
 			queue = PriorityQueue(maxsize=0)
 			queue.put_nowait(first)
 	return "fail"

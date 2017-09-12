@@ -1,20 +1,4 @@
 	Search Algorithm Output
 
 	Expanded	Queue
-		<M,S> M		[uninformed]
-<M,S> <A,S> M		[uninformeduninformed]
-<G,M,S> <A,S> G		[uninformeduninformed]
-<G,M,S> <A,S> <L,M,S> G		[uninformeduninformeduninformed]
-<G,M,S> <A,S> <L,M,S> <S,M,S> G		[uninformeduninformeduninformeduninformed]
-		goal reached!
-
-
-	Expanded	Queue
-		<M,S> M		[uninformed]
-<M,S> <A,S> M		[uninformeduninformed]
-<G,M,S> <A,S> G		[uninformeduninformed]
-<G,M,S> <L,M,S> <A,S> G		[uninformeduninformeduninformed]
-<G,M,S> <L,M,S> <A,S> <S,M,S> G		[uninformeduninformeduninformeduninformed]
-		goal reached!
-
-
+		

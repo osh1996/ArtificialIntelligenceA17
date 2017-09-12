@@ -1,7 +1,9 @@
 from node import Node
-import utility
+from utility import printLabels
 from generalSearch import generalSearch
-import Queue
+from Queue import LifoQueue
+from queueItem import QueueItem
+
 
 class depthLimitSearch:
 

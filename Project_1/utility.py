@@ -46,10 +46,10 @@ def printPrevNodes(currQueueItem):
 	file = open("output.txt", 'a')
 	outputText = "<" + currQueueItem.node.name
 	
-	currNode = currQueueItem.prevNode
+	currNode = currQueueItem.prevNode[1]
 	while(currNode != -999):
 		outputText = outputText + "," + currNode.node.name
-		currNode = currNode.prevNode
+		currNode = currNode.prevNode[1]
 	
 	outputText = outputText + "> "
 	file.write(outputText)

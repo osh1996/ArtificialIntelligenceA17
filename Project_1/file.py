@@ -76,31 +76,31 @@ printResult(bfsResult)
 
 dlsLimit = 2
 dls = depthLimitSearch.depthLimitSearch(startNode, goalNode, dlsLimit)		
-dlsResult = depthLimitSearchFn()
+dlsResult = dls.depthLimitSearchFn()
 printResult(dlsResult)
 
 ids = iterativeDeepeningSearch.iterativeDeepeningSearch(startNode, goalNode)
-idsResult = iterativeDeepeningSearchFn()
+idsResult = ids.iterativeDeepeningSearchFn()
 printResult(idsResult)
 
 ucs = uniformCostSearch.uniformCostSearch(startNode, goalNode)
-ucsResult = uniformCostSearchFn()
+ucsResult = ucs.uniformCostSearchFn()
 printResult(ucsResult)
 
 greedy = greedySearch.greedySearch(startNode, goalNode)
-greedyResult = greedySearchFn()
+greedyResult = greedy.greedySearchFn()
 printResult(greedyResult)
 
 astar = aStarSearch.astarSearch(startNode, goalNode)
-astarResult = aStarSearchFn()
+astarResult = astar.aStarSearchFn()
 printResult(astarResult)
 
 hcs = hillClimbingSearch.hillClimbingSearch(startNode, goalNode)
-hcsResult = hillClimbingSearchFn()
+hcsResult = hcs.hillClimbingSearchFn()
 printResult(hcsResult)
 
 beam = beamSearch.beamSearch(startNode, goalNode)
-beamResult = beamSearchFn()
+beamResult = beam.beamSearchFn()
 printResult(beamResult)
 
 
