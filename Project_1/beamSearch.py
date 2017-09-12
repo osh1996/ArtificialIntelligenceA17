@@ -1,5 +1,6 @@
 from node import Node
-import utility
+from utility import printLabels
+from queueItem import QueueItem
 from Queue import PriorityQueue
 from generalSearch import generalSearch
 

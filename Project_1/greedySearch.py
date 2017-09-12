@@ -1,7 +1,8 @@
 from node import Node
-import utility
+from utility import printLabels
 from Queue import PriorityQueue
 from generalSearch import generalSearch
+from queueItem import QueueItem
 
 #just make a greedy choice each step based on the heuristic of each node
 

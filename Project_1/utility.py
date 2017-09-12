@@ -1,4 +1,5 @@
 from Queue import PriorityQueue
+from node import Node
 
 def getNode(name, nodeObjects):
 	for node in nodeObjects:
