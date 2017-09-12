@@ -1,6 +1,7 @@
 from node import Node
 from utility import getNode
 from utility import printLabels
+from utility import printResult
 import utility
 import depthFirstSearch
 import breadthFirstSearch
@@ -69,36 +70,36 @@ dfs = depthFirstSearch.depthFirstSearch(startNode, goalNode)
 dfsResult = dfs.depthFirstSearchFn()
 printResult(dfsResult)
 
-bfs = breadthFirstSearch(startNode, goalNode)
+bfs = breadthFirstSearch.breadthFirstSearch(startNode, goalNode)
 bfsResult = bfs.breadthFirstSearchFn()
 printResult(bfsResult)
 
 dlsLimit = 2
-dls = depthLimitSearch(startNode, goalNode, dlsLimit)		
+dls = depthLimitSearch.depthLimitSearch(startNode, goalNode, dlsLimit)		
 dlsResult = depthLimitSearchFn()
 printResult(dlsResult)
 
-ids = iterativeDeepeningSearch(startNode, goalNode)
+ids = iterativeDeepeningSearch.iterativeDeepeningSearch(startNode, goalNode)
 idsResult = iterativeDeepeningSearchFn()
 printResult(idsResult)
 
-ucs = uniformCostSearch(startNode, goalNode)
+ucs = uniformCostSearch.uniformCostSearch(startNode, goalNode)
 ucsResult = uniformCostSearchFn()
 printResult(ucsResult)
 
-greedy = greedySearch(startNode, goalNode)
+greedy = greedySearch.greedySearch(startNode, goalNode)
 greedyResult = greedySearchFn()
 printResult(greedyResult)
 
-astar = astarSearch(startNode, goalNode)
+astar = aStarSearch.astarSearch(startNode, goalNode)
 astarResult = aStarSearchFn()
 printResult(astarResult)
 
-hcs = hillClimbingSearch(startNode, goalNode)
+hcs = hillClimbingSearch.hillClimbingSearch(startNode, goalNode)
 hcsResult = hillClimbingSearchFn()
 printResult(hcsResult)
 
-beam = beamSearch(startNode, goalNode)
+beam = beamSearch.beamSearch(startNode, goalNode)
 beamResult = beamSearchFn()
 printResult(beamResult)
 

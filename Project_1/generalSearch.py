@@ -33,7 +33,7 @@ def generalSearch(method, initQueue):
 	queue = initQueue
 	visited = set()
 	while(queue):
-		currQueueTuple = queue.get()
+		currQueueTuple = queue.get_nowait()
 		currQueueItem = currQueueTuple[1]
 		print(currQueueItem.node.name)
 		if currQueueItem.node.name == goalNodeName:
@@ -50,13 +50,13 @@ def generalSearch(method, initQueue):
 				print
 				queue = printQueueState(queue)
 		if method == "beam":
-			first = queue.get()
-			second = queue.get()
+			first = queue.get_nowait()
+			second = queue.get_nowait()
 			queue = PriorityQueue(maxsize=0)
 			queue.put_nowait(first)
 			queue.put_nowait(second)
 		if method == "hill climbing":
-			first = queue.get()
+			first = queue.get_nowait()
 			queue = PriorityQueue(maxsize=0)
 			queue.put_nowait(first)
 	return "fail"

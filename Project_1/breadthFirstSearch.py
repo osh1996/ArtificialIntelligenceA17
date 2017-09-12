@@ -1,7 +1,8 @@
 from node import Node
-import utility
+from utility import printLabels
 from generalSearch import generalSearch
-import Queue
+from Queue import Queue
+from queueItem import QueueItem
 
 class breadthFirstSearch:
 

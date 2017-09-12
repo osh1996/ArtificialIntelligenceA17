@@ -21,15 +21,16 @@ def printLabelsIDS(limit):
 
 def printQueueState(queue):
 	file = open("output.txt", 'a')
-	expandedNode = queue.get()
-	nodeName = expandedNode[1].node.name
-	queue.put_nowait(expandedNode)
+	if(queue):
+		expandedNode = queue.get_nowait()
+		nodeName = expandedNode[1].node.name
+		queue.put_nowait(expandedNode)
 
 	outputText = nodeName + "\t\t["
 	newQueue = PriorityQueue(maxsize=0)
 
-	while(queue):
-		queueTuple = queue.get()
+	while (not queue.empty()):
+		queueTuple = queue.get_nowait()
 		print(queueTuple[0])
 		if(queueTuple[0] != -1):
 			outputText += queueTuple[0]
