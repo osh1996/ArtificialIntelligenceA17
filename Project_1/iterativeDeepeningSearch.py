@@ -12,16 +12,10 @@ class iterativeDeepeningSearch:
 
 	def iterativeDeepeningSearchFn(self):
 		result = "start"
-		for i in to_infinity():
+		for i in range(0,100):
 			result = depthLimitSearch(self.nodeObjects, self.startNode, self.goalNode, i)
 			printLabelsIDS(i)
 			if result == "G":
 				return result
 		if result == "fail" or result == "start":
 			return "fail"
-	
-	def to_infinity(self):
-    	index = 0
-    	while 1:
-       		yield index
-        	index += 1

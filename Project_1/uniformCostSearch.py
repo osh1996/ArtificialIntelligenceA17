@@ -10,9 +10,9 @@ class uniformCostSearch:
 		self.goalNode = goalNode
 
 
-	def uniformCostSearchFn(self)
+	def uniformCostSearchFn(self):
 		ucsQueue = Queue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (0, startNodeQueueItem)
 		ucsQueue.put_nowait(initQueueTuple)
 

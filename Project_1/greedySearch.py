@@ -13,7 +13,7 @@ class greedySearch:
 
 	def greedySearchFn(self):
 		greedyQueue = PriorityQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		greedyQueue.put_nowait(initQueueTuple)
 		printLabels()

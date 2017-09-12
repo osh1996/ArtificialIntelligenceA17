@@ -13,7 +13,7 @@ class beamSearch:
 
 	def beamSearchFn(self):
 		beamQueue = PriorityQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		beamQueue.put_nowait(initQueueTuple)
 		printLabels()

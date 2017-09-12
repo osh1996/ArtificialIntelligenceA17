@@ -1,7 +1,8 @@
 from node import Node
-import utility
+from utility import printLabels
 from generalSearch import generalSearch
-import Queue
+from Queue import LifoQueue
+from queueItem import QueueItem
 
 class depthFirstSearch:
 
@@ -12,7 +13,7 @@ class depthFirstSearch:
 
 	def depthFirstSearchFn(self):
 		dfsQueue = LifoQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (-1, startNodeQueueItem)
 		dfsQueue.put_nowait(initQueueTuple)
 		printLabels()

@@ -1,4 +1,4 @@
-import Queue
+from Queue import PriorityQueue
 
 def getNode(name, nodeObjects):
 	for node in nodeObjects:
@@ -21,15 +21,16 @@ def printLabelsIDS(limit):
 
 def printQueueState(queue):
 	file = open("output.txt", 'a')
-	currQueue = queue
-	expandedNode = currQueue.pop()
+	expandedNode = queue.get()
 	nodeName = expandedNode[1].node.name
+	queue.put_nowait(expandedNode)
 
 	outputText = nodeName + "\t\t["
 	newQueue = PriorityQueue(maxsize=0)
 
-	while(currQueue):
-		queueTuple = currQueue.pop()
+	while(queue):
+		queueTuple = queue.get()
+		print(queueTuple[0])
 		if(queueTuple[0] != -1):
 			outputText += queueTuple[0]
 		printPrevNodes(queueTuple[1])
@@ -45,15 +46,15 @@ def printPrevNodes(currQueueItem):
 	outputText = "<" + currQueueItem.node.name
 	
 	currNode = currQueueItem.prevNode
-	while(currNode != null):
+	while(currNode != -999):
 		outputText = outputText + "," + currNode.node.name
 		currNode = currNode.prevNode
+	
 	outputText = outputText + "> "
-
 	file.write(outputText)
 	file.close()
 
-def printResult(result)
+def printResult(result):
 	file = open("output.txt", 'a')
 	if(result == "G"):
 		file.write("\t\tgoal reached!\n\n\n")

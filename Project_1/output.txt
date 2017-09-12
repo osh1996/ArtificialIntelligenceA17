@@ -1,0 +1,4 @@
+	Search Algorithm Output
+
+	Expanded	Queue
+		<M,S> 

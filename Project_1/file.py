@@ -1,4 +1,6 @@
 from node import Node
+from utility import getNode
+from utility import printLabels
 import utility
 import depthFirstSearch
 import breadthFirstSearch
@@ -22,11 +24,9 @@ for line in f:
 	else:
 		if flag == 1:
 			nodeList.append(line)
-			print ("added " + line + " to nodeList")
 
 		else:
 			edgeList.append(line)
-			print ("added " + line + " to edgeList")
 f.close()
 
 #print (nodeList)
@@ -35,7 +35,7 @@ nodeObjects = list()
 for item in nodeList:
 	current = item.split()
 	name = current[0]
-	heur = current[1]
+	heur = float(current[1])
 	newNode = Node(name, heur)
 	nodeObjects.append(newNode)
 	print (newNode)
@@ -58,14 +58,14 @@ for item in edgeList:
 		if node.name is secondNodeName:
 			secondNode = node
 
-	firstNode.add_edge(secondNode, length)
-	secondNode.add_edge(firstNode, length)
+	firstNode.add_edge(secondNode, float(length))
+	secondNode.add_edge(firstNode, float(length))
 
 outputFile = open("output.txt", 'w')
 outputFile.write("\tSearch Algorithm Output\n\n")
 outputFile.close()
 
-dfs = depthFirstSearch(startNode, goalNode)
+dfs = depthFirstSearch.depthFirstSearch(startNode, goalNode)
 dfsResult = dfs.depthFirstSearchFn()
 printResult(dfsResult)
 

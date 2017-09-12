@@ -13,7 +13,7 @@ class aStarSearch:
 
 	def aStarSearchFn(self):
 		astarQueue = PriorityQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		astarQueue.put_nowait(initQueueTuple)
 		printLabels()

@@ -13,7 +13,7 @@ class depthLimitSearch:
 
 	def depthLimitSearchFn(self):
 		dlsQueue = LifoQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, null, 0)
+		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
 		initQueueTuple = (self.limit, startNodeQueueItem)
 		dlsQueue.put_nowait(initQueueTuple)
 		printLabels()

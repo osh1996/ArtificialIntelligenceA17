@@ -1,6 +1,5 @@
-import Queue
-import queueItem
-import utility
+from queueItem import QueueItem
+from utility import printQueueState
 from node import Node
 
 	# returns a set of all outgoing edges from a given node
@@ -34,29 +33,31 @@ def generalSearch(method, initQueue):
 	queue = initQueue
 	visited = set()
 	while(queue):
-		currQueueTuple = queue.pop()
+		currQueueTuple = queue.get()
 		currQueueItem = currQueueTuple[1]
-
+		print(currQueueItem.node.name)
 		if currQueueItem.node.name == goalNodeName:
 			return "G"
 		openedNodes = expand(currQueueItem.node)
 		for action in openedNodes:
 			if method != "depth limited" or currNode.value != 0:
 				totalPathCost = currQueueItem.pathCost + currQueueItem.node.get_edge(action)[1]
-				newAction = queueItem(action, currNode, totalPathCost)
+				newAction = QueueItem(action, currQueueItem, totalPathCost)
 				newActionTuple = (calculateValue(newAction, method), newAction)
+				print(newAction.node.name)
 				queue.put_nowait(newActionTuple)
 				visited.add(newActionTuple)
+				print
 				queue = printQueueState(queue)
 		if method == "beam":
-			first = queue.pop()
-			second = queue.pop()
+			first = queue.get()
+			second = queue.get()
 			queue = PriorityQueue(maxsize=0)
 			queue.put_nowait(first)
 			queue.put_nowait(second)
 		if method == "hill climbing":
-			first = queue.pop()
+			first = queue.get()
 			queue = PriorityQueue(maxsize=0)
 			queue.put_nowait(first)
-		return "fail"
+	return "fail"
 
