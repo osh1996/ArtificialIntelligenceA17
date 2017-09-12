@@ -1,6 +1,6 @@
 from queueItem import QueueItem
 from utility import printQueueState
-from node import Node
+from Node import Node
 
 	# returns a set of all outgoing edges from a given node
 def expand(node):

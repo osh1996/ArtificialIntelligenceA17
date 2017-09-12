@@ -9,7 +9,8 @@ class Node:
 		self.edges.add((node, cost))
 
 	def get_edge(self, node):
-		for edge in self.edges:
+		edges = list(self.edges)
+		for edge in edges:
 			if edge[0].name == node.name:
 				return edge
 		return -1
