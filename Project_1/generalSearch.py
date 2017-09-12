@@ -32,6 +32,7 @@ def calculateValue(queueItem, searchMethod):
 def generalSearch(method, initQueue):
 	goalNodeName = "G"
 	queue = initQueue
+	visited = set()
 	while(queue):
 		currQueueTuple = queue.get()
 		currQueueItem = currQueueTuple[1]
@@ -45,7 +46,9 @@ def generalSearch(method, initQueue):
 				newAction = QueueItem(action, currQueueTuple, totalPathCost)
 				newActionValue = calculateValue(newAction, method)
 				newActionTuple = (newActionValue, newAction)
-				queue.put_nowait(newActionTuple)
+				if newAction.node.name not in visited:
+					queue.put_nowait(newActionTuple)
+					visited.add(newAction.node.name)
 				queue = printQueueState(queue)
 		if method == "beam":
 			first = queue.get()

@@ -1,4 +1,226 @@
 	Search Algorithm Output
 
 	Expanded	Queue
-		
+		<A,S> A		[]
+<A,S> <M,S> A		[]
+<M,S> <B,A,S> M		[]
+<M,S> <B,A,S> <C,A,S> M		[]
+<M,S> <B,A,S> <C,A,S> <S,A,S> M		[]
+<M,S> <B,A,S> <C,A,S> <S,A,S> <I,A,S> M		[]
+<B,A,S> <C,A,S> <S,A,S> <I,A,S> <L,M,S> B		[]
+<B,A,S> <C,A,S> <S,A,S> <I,A,S> <L,M,S> B		[]
+<B,A,S> <C,A,S> <S,A,S> <I,A,S> <L,M,S> <G,M,S> B		[]
+<C,A,S> <S,A,S> <I,A,S> <L,M,S> <G,M,S> C		[]
+<S,A,S> <I,A,S> <L,M,S> <G,M,S> <E,C,A,S> S		[]
+<S,A,S> <I,A,S> <L,M,S> <G,M,S> <E,C,A,S> S		[]
+<S,A,S> <I,A,S> <L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> S		[]
+<I,A,S> <L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> I		[]
+<I,A,S> <L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> I		[]
+<L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> L		[]
+<J,I,A,S> <L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> J		[]
+<L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> L		[]
+<L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> <K,J,I,A,S> L		[]
+<L,M,S> <G,M,S> <E,C,A,S> <D,C,A,S> <K,J,I,A,S> L		[]
+<G,M,S> <E,C,A,S> <D,C,A,S> <K,J,I,A,S> G		[]
+<G,M,S> <E,C,A,S> <D,C,A,S> <K,J,I,A,S> G		[]
+<G,M,S> <E,C,A,S> <D,C,A,S> <K,J,I,A,S> G		[]
+	Expanded	Queue
+		<A,S> A		[]
+<M,S> <A,S> M		[]
+<L,M,S> <A,S> L		[]
+<L,M,S> <S,M,S> <A,S> L		[]
+<L,M,S> <S,M,S> <A,S> <G,M,S> L		[]
+<S,M,S> <A,S> <G,M,S> <J,L,M,S> S		[]
+<S,M,S> <A,S> <G,M,S> <J,L,M,S> S		[]
+<S,M,S> <A,S> <G,M,S> <J,L,M,S> <K,L,M,S> S		[]
+<A,S> <G,M,S> <J,L,M,S> <K,L,M,S> A		[]
+<A,S> <G,M,S> <J,L,M,S> <K,L,M,S> A		[]
+<G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> G		[]
+<C,A,S> <G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> C		[]
+<C,A,S> <G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> C		[]
+<C,A,S> <G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> <I,A,S> C		[]
+<G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> <I,A,S> <E,C,A,S> G		[]
+<G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> <I,A,S> <E,C,A,S> G		[]
+<G,M,S> <J,L,M,S> <K,L,M,S> <B,A,S> <I,A,S> <E,C,A,S> <D,C,A,S> G		[]
+	Expanded	Queue
+		<A,S> A		[1]
+<M,S> <A,S> M		[11]
+<L,M,S> <A,S> L		[01]
+<L,M,S> <S,M,S> <A,S> L		[001]
+<L,M,S> <S,M,S> <G,M,S> <A,S> L		[0001]
+	Expanded	Queue
+L=0		Expanded	Queue
+L=1		Expanded	Queue
+L=2		Expanded	Queue
+L=3		Expanded	Queue
+L=4		Expanded	Queue
+L=5		Expanded	Queue
+L=6		Expanded	Queue
+L=7		Expanded	Queue
+L=8		Expanded	Queue
+L=9		Expanded	Queue
+L=10		Expanded	Queue
+L=11		Expanded	Queue
+L=12		Expanded	Queue
+L=13		Expanded	Queue
+L=14		Expanded	Queue
+L=15		Expanded	Queue
+L=16		Expanded	Queue
+L=17		Expanded	Queue
+L=18		Expanded	Queue
+L=19		Expanded	Queue
+L=20		Expanded	Queue
+L=21		Expanded	Queue
+L=22		Expanded	Queue
+L=23		Expanded	Queue
+L=24		Expanded	Queue
+L=25		Expanded	Queue
+L=26		Expanded	Queue
+L=27		Expanded	Queue
+L=28		Expanded	Queue
+L=29		Expanded	Queue
+L=30		Expanded	Queue
+L=31		Expanded	Queue
+L=32		Expanded	Queue
+L=33		Expanded	Queue
+L=34		Expanded	Queue
+L=35		Expanded	Queue
+L=36		Expanded	Queue
+L=37		Expanded	Queue
+L=38		Expanded	Queue
+L=39		Expanded	Queue
+L=40		Expanded	Queue
+L=41		Expanded	Queue
+L=42		Expanded	Queue
+L=43		Expanded	Queue
+L=44		Expanded	Queue
+L=45		Expanded	Queue
+L=46		Expanded	Queue
+L=47		Expanded	Queue
+L=48		Expanded	Queue
+L=49		Expanded	Queue
+L=50		Expanded	Queue
+L=51		Expanded	Queue
+L=52		Expanded	Queue
+L=53		Expanded	Queue
+L=54		Expanded	Queue
+L=55		Expanded	Queue
+L=56		Expanded	Queue
+L=57		Expanded	Queue
+L=58		Expanded	Queue
+L=59		Expanded	Queue
+L=60		Expanded	Queue
+L=61		Expanded	Queue
+L=62		Expanded	Queue
+L=63		Expanded	Queue
+L=64		Expanded	Queue
+L=65		Expanded	Queue
+L=66		Expanded	Queue
+L=67		Expanded	Queue
+L=68		Expanded	Queue
+L=69		Expanded	Queue
+L=70		Expanded	Queue
+L=71		Expanded	Queue
+L=72		Expanded	Queue
+L=73		Expanded	Queue
+L=74		Expanded	Queue
+L=75		Expanded	Queue
+L=76		Expanded	Queue
+L=77		Expanded	Queue
+L=78		Expanded	Queue
+L=79		Expanded	Queue
+L=80		Expanded	Queue
+L=81		Expanded	Queue
+L=82		Expanded	Queue
+L=83		Expanded	Queue
+L=84		Expanded	Queue
+L=85		Expanded	Queue
+L=86		Expanded	Queue
+L=87		Expanded	Queue
+L=88		Expanded	Queue
+L=89		Expanded	Queue
+L=90		Expanded	Queue
+L=91		Expanded	Queue
+L=92		Expanded	Queue
+L=93		Expanded	Queue
+L=94		Expanded	Queue
+L=95		Expanded	Queue
+L=96		Expanded	Queue
+L=97		Expanded	Queue
+L=98		Expanded	Queue
+L=99		Expanded	Queue
+		<A,S> A		[1.0]
+<A,S> <M,S> A		[1.015.0]
+<M,S> <B,A,S> M		[15.061.0]
+<C,A,S> <M,S> <B,A,S> C		[3.015.061.0]
+<S,A,S> <C,A,S> <M,S> <B,A,S> S		[2.03.015.061.0]
+<S,A,S> <C,A,S> <I,A,S> <M,S> <B,A,S> S		[2.03.06.015.061.0]
+<C,A,S> <I,A,S> <M,S> <B,A,S> C		[3.06.015.061.0]
+<C,A,S> <I,A,S> <M,S> <B,A,S> C		[3.06.015.061.0]
+<E,C,A,S> <I,A,S> <M,S> <B,A,S> E		[4.06.015.061.0]
+<E,C,A,S> <I,A,S> <M,S> <B,A,S> E		[4.06.015.061.0]
+<E,C,A,S> <I,A,S> <D,C,A,S> <M,S> <B,A,S> E		[4.06.013.015.061.0]
+<I,A,S> <D,C,A,S> <M,S> <B,A,S> I		[6.013.015.061.0]
+<D,C,A,S> <M,S> <B,A,S> D		[13.015.061.0]
+<J,I,A,S> <D,C,A,S> <M,S> <B,A,S> J		[10.013.015.061.0]
+<D,C,A,S> <M,S> <L,J,I,A,S> <B,A,S> D		[13.015.015.061.0]
+<D,C,A,S> <M,S> <L,J,I,A,S> <K,J,I,A,S> <B,A,S> D		[13.015.015.060.061.0]
+<D,C,A,S> <M,S> <L,J,I,A,S> <K,J,I,A,S> <B,A,S> D		[13.015.015.060.061.0]
+<M,S> <L,J,I,A,S> <K,J,I,A,S> <B,A,S> M		[15.015.060.061.0]
+<L,J,I,A,S> <K,J,I,A,S> <B,A,S> L		[15.060.061.0]
+<L,J,I,A,S> <K,J,I,A,S> <B,A,S> L		[15.060.061.0]
+<L,J,I,A,S> <G,M,S> <K,J,I,A,S> <B,A,S> L		[15.030.060.061.0]
+<G,M,S> <K,J,I,A,S> <B,A,S> G		[30.060.061.0]
+<G,M,S> <K,J,I,A,S> <B,A,S> G		[30.060.061.0]
+<G,M,S> <K,J,I,A,S> <B,A,S> G		[30.060.061.0]
+	Expanded	Queue
+		<A,S> A		[12.0]
+<A,S> <M,S> A		[12.014.0]
+<M,S> <B,A,S> M		[14.024.0]
+<M,S> <C,A,S> <B,A,S> M		[14.016.024.0]
+<M,S> <C,A,S> <S,A,S> <B,A,S> M		[14.016.022.024.0]
+<I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> I		[10.014.016.022.024.0]
+<M,S> <C,A,S> <S,A,S> <B,A,S> M		[14.016.022.024.0]
+<J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> J		[8.014.016.022.024.0]
+<L,J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> L		[4.014.016.022.024.0]
+<L,J,I,A,S> <K,J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> L		[4.06.014.016.022.024.0]
+<L,J,I,A,S> <K,J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> L		[4.06.014.016.022.024.0]
+<K,J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> K		[6.014.016.022.024.0]
+<K,J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> K		[6.014.016.022.024.0]
+<K,J,I,A,S> <M,S> <C,A,S> <S,A,S> <B,A,S> K		[6.014.016.022.024.0]
+<M,S> <C,A,S> <S,A,S> <B,A,S> M		[14.016.022.024.0]
+<M,S> <C,A,S> <S,A,S> <B,A,S> M		[14.016.022.024.0]
+<C,A,S> <S,A,S> <B,A,S> C		[16.022.024.0]
+<C,A,S> <S,A,S> <B,A,S> C		[16.022.024.0]
+<G,M,S> <C,A,S> <S,A,S> <B,A,S> G		[016.022.024.0]
+	Expanded	Queue
+		<A,S> A		[13.0]
+<A,S> <M,S> A		[13.029.0]
+<M,S> <B,A,S> M		[29.085.0]
+<C,A,S> <M,S> <B,A,S> C		[19.029.085.0]
+<C,A,S> <S,A,S> <M,S> <B,A,S> C		[19.024.029.085.0]
+<I,A,S> <C,A,S> <S,A,S> <M,S> <B,A,S> I		[16.019.024.029.085.0]
+<C,A,S> <S,A,S> <M,S> <B,A,S> C		[19.024.029.085.0]
+<J,I,A,S> <C,A,S> <S,A,S> <M,S> <B,A,S> J		[18.019.024.029.085.0]
+<L,J,I,A,S> <C,A,S> <S,A,S> <M,S> <B,A,S> L		[19.019.024.029.085.0]
+<L,J,I,A,S> <C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> L		[19.019.024.029.066.085.0]
+<L,J,I,A,S> <C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> L		[19.019.024.029.066.085.0]
+<C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> C		[19.024.029.066.085.0]
+<C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> C		[19.024.029.066.085.0]
+<C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> C		[19.024.029.066.085.0]
+<E,C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> E		[22.024.029.066.085.0]
+<E,C,A,S> <S,A,S> <M,S> <K,J,I,A,S> <B,A,S> E		[22.024.029.066.085.0]
+<E,C,A,S> <S,A,S> <M,S> <D,C,A,S> <K,J,I,A,S> <B,A,S> E		[22.024.029.033.066.085.0]
+<S,A,S> <M,S> <D,C,A,S> <K,J,I,A,S> <B,A,S> S		[24.029.033.066.085.0]
+<M,S> <D,C,A,S> <K,J,I,A,S> <B,A,S> M		[29.033.066.085.0]
+<M,S> <D,C,A,S> <K,J,I,A,S> <B,A,S> M		[29.033.066.085.0]
+<D,C,A,S> <K,J,I,A,S> <B,A,S> D		[33.066.085.0]
+<D,C,A,S> <K,J,I,A,S> <B,A,S> D		[33.066.085.0]
+<G,M,S> <D,C,A,S> <K,J,I,A,S> <B,A,S> G		[30.033.066.085.0]
+	Expanded	Queue
+		<A,S> A		[12.0]
+<A,S> <M,S> A		[12.014.0]
+<B,A,S> B		[24.0]
+<C,A,S> <B,A,S> C		[16.024.0]
+<C,A,S> <S,A,S> <B,A,S> C		[16.022.024.0]
+<I,A,S> <C,A,S> <S,A,S> <B,A,S> I		[10.016.022.024.0]
