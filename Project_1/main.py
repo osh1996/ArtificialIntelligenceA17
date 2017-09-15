@@ -7,6 +7,7 @@ from utility import printLabels
 from utility import printResult
 from printUtil import printLabels
 from printUtil import printLabelsIDS
+from printUtil import printResult
 import utility
 
 def main():
@@ -63,54 +64,63 @@ def main():
 	outputFile = open("output.txt", 'w')
 	outputFile.write("\tSearch Algorithm Output\n\n")
 	outputFile.close()
+	outputFile = open("output.txt", 'a')
 
 	startPath = Path(startNode, None, 0)
 
-	printLabels()
+	printLabels("dfs")
 	dfsStart = (None, startPath)
 	dfsResult = general_search(dfsStart, "dfs")
-	#print result
+	printResult(dfsResult)
 
-	printLabels()
+	printLabels("bfs")
 	bfsStart = (None, startPath)
 	bfsResult = general_search(bfsStart, "bfs")
+	printResult(bfsResult)
 
 	# depth-limited search with default depth of 2
-	printLabels()
+	printLabels("depth_limited")
 	dlsStartPath = Path(startNode, None, 0)
 	dlsStartPath.fnValue = 2
 	dlsStart = (2, dlsStartPath)
 	dlsResult = general_search(dlsStart, "depth_limited")
+	printResult(dlsResult)
 
-	printLabels()
 	idsStartPath = Path(startNode, None, 0)
-	for i in range(1,50):
+	idsResult = -1
+	for i in range(0,50):
 		printLabelsIDS(i)
 		idsStartPath.fnValue = i
 		idsStart = (i, idsStartPath)
-		idsResult = general_search(idsStart, "iterative_deepening")
+		idsResult = general_search(idsStart, "depth_limited")
 		if idsResult is "pass":
 			break
-	# printResult fn?
+	printResult(idsResult)
 
-	printLabels()
+	printLabels("uniform_cost")
 	ucsStart = (0, startPath)
 	ucsResult = general_search(ucsStart, "uniform_cost")
+	printResult(ucsResult)
 
-	printLabels()
+	printLabels("greedy")
 	greedyStart = (startPath.node.heuristic, startPath) 
 	greedyResult = general_search(greedyStart, "greedy")
+	printResult(greedyResult)
 
+	printLabels("astar")
 	astarStart = (startPath.node.heuristic, startPath)
 	astarResult = general_search(astarStart, "astar")
+	printResult(astarResult)
 
-	printLabels()
+	printLabels("hill_climbing")
 	hcStart = (startPath.node.heuristic, startPath)
 	hcResult = general_search(hcStart, "hill_climbing")
+	printResult(hcResult)
 
-	printLabels()
+	printLabels("beam")
 	beamStart = (startPath.node.heuristic, startPath)
 	beamResult = general_search(beamStart, "beam")
+	printResult(beamResult)
 
 
 if __name__ == "__main__":

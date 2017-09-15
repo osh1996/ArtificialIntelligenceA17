@@ -2,6 +2,7 @@ from Queue import PriorityQueue
 from node import Node
 import Queue
 from path import Path
+from printUtil import printLine
 
 def general_search(start, method):
 	q = make_queue(start, method)
@@ -27,10 +28,9 @@ def queue_sort(queue, pathTuple, opened_nodes, method):
 			value = calculateValue(path, method)
 			path.fnValue = value
 			pathTuple = (value, path)
-			print(path.node.name + " - " + str(path.fnValue))
 			q.put_nowait(pathTuple)
+	printLine(q, method)
 	if method == "hill_climbing":
-		print("hill-climbing")
 		if not q.empty():
 			first = q.get_nowait()
 			q = PriorityQueue()
