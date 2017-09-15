@@ -30,6 +30,7 @@ def queue_sort(queue, node, opened_nodes, method):
 		q = PriorityQueue()
 		q.put_nowait(first)
 		q.put_nowait(second)
+	return q
 
 
 
