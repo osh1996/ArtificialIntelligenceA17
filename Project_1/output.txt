@@ -1,2 +1,5 @@
 	Search Algorithm Output
 
+	Expanded		Queue
+			Expanded		Queue
+L=1	
