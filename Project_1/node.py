@@ -14,4 +14,3 @@ class Node:
 				return edge
 		return -1
 
-
