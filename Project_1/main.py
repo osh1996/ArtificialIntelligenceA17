@@ -3,12 +3,9 @@ from general_search import general_search
 from node import Node
 from path import Path
 from utility import getNode
-from utility import printLabels
-from utility import printResult
 from printUtil import printLabels
 from printUtil import printLabelsIDS
 from printUtil import printResult
-import utility
 
 def main():
 	arg = sys.argv[1]
@@ -24,20 +21,22 @@ def main():
 			flag = 1
 		else:
 			if flag == 1:
-				nodeList.append(line)
+				if line.strip() != "":
+					nodeList.append(line)
 
 			else:
-				edgeList.append(line)
+				if line.strip() != "":
+					edgeList.append(line)
 	f.close()
 
 	nodeObjects = list()
 	for item in nodeList:
 		current = item.split()
+		print(current[0])
 		name = current[0]
 		heur = float(current[1])
 		newNode = Node(name, heur)
 		nodeObjects.append(newNode)
-		print (newNode)
 
 	startNode = getNode("S", nodeObjects)
 	goalNode = Node("G", 0)
