@@ -14,7 +14,7 @@ class hillClimbingSearch:
 
 	def hillClimbingSearchFn(self):
 		hcQueue = PriorityQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
+		startNodeQueueItem = QueueItem(self.startNode, None, 0)
 		initQueueTuple = (startNodeQueueItem.node.heuristic, startNodeQueueItem)
 		hcQueue.put_nowait(initQueueTuple)
 		printLabels()

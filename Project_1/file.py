@@ -62,7 +62,7 @@ for item in edgeList:
 	firstNode.add_edge(secondNode, float(length))
 	secondNode.add_edge(firstNode, float(length))
 
-outputFile = open("output.txt", 'w')
+outputFile = open("output.txt", 'a')
 outputFile.write("\tSearch Algorithm Output\n\n")
 outputFile.close()
 

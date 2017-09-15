@@ -4,11 +4,12 @@ from node import Node
 from Queue import PriorityQueue
 
 	# returns a set of all outgoing edges from a given node
-def expand(node):
+def expand(node, visited):
 	possibleMoves = list()
 	for edge in node.edges:
 		adjacentNode = edge[0]
-		possibleMoves.append(adjacentNode)
+		if adjacentNode not in visited:
+			possibleMoves.append(adjacentNode)
 	return possibleMoves
 
 	# calculates f(n) for the given node in the search based on the algorithm used
@@ -33,14 +34,15 @@ def generalSearch(method, initQueue):
 	goalNodeName = "G"
 	queue = initQueue
 	visited = set()
-	while(queue):
+	while(not queue.empty()):
 		currQueueTuple = queue.get()
 		currQueueItem = currQueueTuple[1]
 		print(currQueueItem.node.name)
 		if currQueueItem.node.name == goalNodeName:
 			return "G"
-		openedNodes = expand(currQueueItem.node)
+		openedNodes = expand(currQueueItem.node, visited)
 		for action in openedNodes:
+			print(action.name)
 			if method != "depth limited" or currQueueTuple[0] != 0:
 				totalPathCost = currQueueItem.pathCost + currQueueItem.node.get_edge(action)[1]
 				newAction = QueueItem(action, currQueueTuple, totalPathCost)
@@ -48,7 +50,7 @@ def generalSearch(method, initQueue):
 				newActionTuple = (newActionValue, newAction)
 				if newAction.node.name not in visited:
 					queue.put_nowait(newActionTuple)
-					visited.add(newAction.node.name)
+					visited.add(newAction.node)
 				queue = printQueueState(queue)
 		if method == "beam":
 			first = queue.get()

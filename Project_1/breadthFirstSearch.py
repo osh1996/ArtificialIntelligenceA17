@@ -13,7 +13,7 @@ class breadthFirstSearch:
 
 	def breadthFirstSearchFn(self):
 		bfsQueue = Queue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
+		startNodeQueueItem = QueueItem(self.startNode, None, 0)
 		initQueueTuple = (-1, startNodeQueueItem)
 		bfsQueue.put_nowait(initQueueTuple)
 		printLabels()

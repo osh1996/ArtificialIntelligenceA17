@@ -13,7 +13,7 @@ class depthFirstSearch:
 
 	def depthFirstSearchFn(self):
 		dfsQueue = LifoQueue(maxsize=0)
-		startNodeQueueItem = QueueItem(self.startNode, -999, 0)
+		startNodeQueueItem = QueueItem(self.startNode, None, 0)
 		initQueueTuple = (-1, startNodeQueueItem)
 		dfsQueue.put_nowait(initQueueTuple)
 		printLabels()
