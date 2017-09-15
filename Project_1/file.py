@@ -1,108 +1,103 @@
+import sys
 from node import Node
 from utility import getNode
 from utility import printLabels
 from utility import printResult
 import utility
-import depthFirstSearch
-import breadthFirstSearch
-import depthLimitSearch
-import iterativeDeepeningSearch
-import uniformCostSearch
-import greedySearch
-import aStarSearch
-import beamSearch
-import hillClimbingSearch
 
-f = open("graph.txt", "r")
-nodeList = list()
-edgeList = list()
+def main():
+	in = sys.argv[1]
+	in = string(in)
+	f = open(in, "r")
+	nodeList = list()
+	edgeList = list()
 
-q = list()
-flag = 0
-for line in f:
-	if "#" in line:
-		flag = 1
-	else:
-		if flag == 1:
-			nodeList.append(line)
-
+	q = list()
+	flag = 0
+	for line in f:
+		if "#" in line:
+			flag = 1
 		else:
-			edgeList.append(line)
-f.close()
+			if flag == 1:
+				nodeList.append(line)
 
-#print (nodeList)
-#print (edgeList)
-nodeObjects = list()
-for item in nodeList:
-	current = item.split()
-	name = current[0]
-	heur = float(current[1])
-	newNode = Node(name, heur)
-	nodeObjects.append(newNode)
-	print (newNode)
+			else:
+				edgeList.append(line)
+	f.close()
 
-startNode = getNode("S", nodeObjects)
-goalNode = Node("G", 0)
-nodeObjects.append(goalNode)
+	nodeObjects = list()
+	for item in nodeList:
+		current = item.split()
+		name = current[0]
+		heur = float(current[1])
+		newNode = Node(name, heur)
+		nodeObjects.append(newNode)
+		print (newNode)
 
-for item in edgeList:
-	current = item.split()
-	firstNodeName = current[0]
-	secondNodeName = current[1]
-	length = current[2]
+	startNode = getNode("S", nodeObjects)
+	goalNode = Node("G", 0)
+	nodeObjects.append(goalNode)
 
-	firstNode = 0
-	secondNode = 0
-	for node in nodeObjects:
-		if node.name is firstNodeName:
-			firstNode = node
-		if node.name is secondNodeName:
-			secondNode = node
+	for item in edgeList:
+		current = item.split()
+		firstNodeName = current[0]
+		secondNodeName = current[1]
+		length = current[2]
 
-	firstNode.add_edge(secondNode, float(length))
-	secondNode.add_edge(firstNode, float(length))
+		firstNode = 0
+		secondNode = 0
+		for node in nodeObjects:
+			if node.name is firstNodeName:
+				firstNode = node
+			if node.name is secondNodeName:
+				secondNode = node
 
-outputFile = open("output.txt", 'a')
-outputFile.write("\tSearch Algorithm Output\n\n")
-outputFile.close()
+		firstNode.add_edge(secondNode, float(length))
+		secondNode.add_edge(firstNode, float(length))
 
-dfs = depthFirstSearch.depthFirstSearch(startNode, goalNode)
-dfsResult = dfs.depthFirstSearchFn()
-printResult(dfsResult)
+	outputFile = open("output.txt", 'a')
+	outputFile.write("\tSearch Algorithm Output\n\n")
+	outputFile.close()
 
-bfs = breadthFirstSearch.breadthFirstSearch(startNode, goalNode)
-bfsResult = bfs.breadthFirstSearchFn()
-printResult(bfsResult)
+	dfs = depthFirstSearch.depthFirstSearch(startNode, goalNode)
+	dfsResult = dfs.depthFirstSearchFn()
+	printResult(dfsResult)
 
-dlsLimit = 2
-dls = depthLimitSearch.depthLimitSearch(startNode, goalNode, dlsLimit)		
-dlsResult = dls.depthLimitSearchFn()
-printResult(dlsResult)
+	bfs = breadthFirstSearch.breadthFirstSearch(startNode, goalNode)
+	bfsResult = bfs.breadthFirstSearchFn()
+	printResult(bfsResult)
 
-ids = iterativeDeepeningSearch.iterativeDeepeningSearch(startNode, goalNode)
-idsResult = ids.iterativeDeepeningSearchFn()
-printResult(idsResult)
+	dlsLimit = 2
+	dls = depthLimitSearch.depthLimitSearch(startNode, goalNode, dlsLimit)		
+	dlsResult = dls.depthLimitSearchFn()
+	printResult(dlsResult)
 
-ucs = uniformCostSearch.uniformCostSearch(startNode, goalNode)
-ucsResult = ucs.uniformCostSearchFn()
-printResult(ucsResult)
+	ids = iterativeDeepeningSearch.iterativeDeepeningSearch(startNode, goalNode)
+	idsResult = ids.iterativeDeepeningSearchFn()
+	printResult(idsResult)
 
-greedy = greedySearch.greedySearch(startNode, goalNode)
-greedyResult = greedy.greedySearchFn()
-printResult(greedyResult)
+	ucs = uniformCostSearch.uniformCostSearch(startNode, goalNode)
+	ucsResult = ucs.uniformCostSearchFn()
+	printResult(ucsResult)
 
-astar = aStarSearch.aStarSearch(startNode, goalNode)
-astarResult = astar.aStarSearchFn()
-printResult(astarResult)
+	greedy = greedySearch.greedySearch(startNode, goalNode)
+	greedyResult = greedy.greedySearchFn()
+	printResult(greedyResult)
 
-hcs = hillClimbingSearch.hillClimbingSearch(startNode, goalNode)
-hcsResult = hcs.hillClimbingSearchFn()
-printResult(hcsResult)
+	astar = aStarSearch.aStarSearch(startNode, goalNode)
+	astarResult = astar.aStarSearchFn()
+	printResult(astarResult)
 
-beam = beamSearch.beamSearch(startNode, goalNode)
-beamResult = beam.beamSearchFn()
-printResult(beamResult)
+	hcs = hillClimbingSearch.hillClimbingSearch(startNode, goalNode)
+	hcsResult = hcs.hillClimbingSearchFn()
+	printResult(hcsResult)
 
+	beam = beamSearch.beamSearch(startNode, goalNode)
+	beamResult = beam.beamSearchFn()
+	printResult(beamResult)
+
+if __name__ == "__main__":
+	main()
 
 #Depth 1st Search
 #Chris
