@@ -72,12 +72,18 @@ def main():
 	bfsResult = general_search(bfsStart, "bfs")
 
 	# depth-limited search with default depth of 2
-	dlsStart = (2, startPath)
+	dlsStartPath = Path(startNode, None, 0)
+	dlsStartPath.fnValue = 2
+	dlsStart = (2, dlsStartPath)
 	dlsResult = general_search(dlsStart, "depth_limited")
 
+	idsStartPath = Path(startNode, None, 0)
 	for i in range(1,50):
-		idsStart = (i, startPath)
+		idsStartPath.fnValue = i
+		idsStart = (i, idsStartPath)
 		idsResult = general_search(idsStart, "iterative_deepening")
+		if idsResult is "pass":
+			break
 	# printResult fn?
 
 	ucsStart = (0, startPath)
