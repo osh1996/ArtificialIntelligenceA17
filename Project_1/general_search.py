@@ -18,8 +18,14 @@ def queue_sort(queue, node, opened_nodes, method):
 	if method != "depth limited" or currQueueTuple[0] != 0:
 		for path in opened_nodes:
 			q.put_nowait(path)
-	if method == "hill climbing":
+	if method == "hill_climbing":
 		first = q.get_nowait()
 		q = PriorityQueue()
 		q.put_nowait(first)
-	if method == "beam"
+	if method == "beam":
+		first = q.get_nowait()
+		second = q.get_nowait()
+		q = PriorityQueue()
+		q.put_nowait(first)
+		q.put_nowait(second)
+		
