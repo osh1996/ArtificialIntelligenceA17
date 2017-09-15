@@ -5,3 +5,4 @@ class Path:
 		self.prevNode = prevNode		## previous node in path as a queueItem
 		self.pathCost = pathCost
 
+	
