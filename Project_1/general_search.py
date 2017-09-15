@@ -8,6 +8,8 @@ def general_search(start, method):
 	opened_nodes = list()
 	visited = set()
 	while(q):
+		if q.empty():
+			return "fail"
 		pathTuple = q.get_nowait()
 		visited.add(pathTuple[1].node.name)
 		if(goal_test(pathTuple[1].node)):
@@ -29,17 +31,22 @@ def queue_sort(queue, pathTuple, opened_nodes, method):
 			q.put_nowait(pathTuple)
 	if method == "hill_climbing":
 		print("hill-climbing")
-		if q.empty():
-			return "fail"
-		first = q.get_nowait()
-		q = PriorityQueue()
-		q.put_nowait(first)
+		if not q.empty():
+			first = q.get_nowait()
+			q = PriorityQueue()
+			q.put_nowait(first)
 	if method == "beam":
-		first = q.get_nowait()
-		second = q.get_nowait()
+		first = False
+		second = False
+		if not q.empty():
+			first = q.get_nowait()
+		if not q.empty():
+			second = q.get_nowait()
 		q = PriorityQueue()
-		q.put_nowait(first)
-		q.put_nowait(second)
+		if first != False:
+			q.put_nowait(first)
+		if second != False:
+			q.put_nowait(second)
 	return q
 
 def goal_test(node):
