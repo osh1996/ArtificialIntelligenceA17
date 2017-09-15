@@ -1,13 +1,15 @@
+
 def general_search(problem, method):
 	q = make_queue(node, method)
-	while(flag):
-		if(q.empty()):
-			return 'fail'
+	opened_nodes = list()
+	visited = set()
+	while(q):
 		node = q.pop()
-		if(goaltest(node)):
+		visited.add(node)
+		if(goal_test(node)):
 			return 'pass'
 		opened_nodes=expand(node)
 		queue_sort(opened_nodes, method)
-
+	return 'fail'
 
 
