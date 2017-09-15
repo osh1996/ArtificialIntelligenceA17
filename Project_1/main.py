@@ -1,14 +1,16 @@
 import sys
+from general_search import general_search
 from node import Node
+from path import Path
 from utility import getNode
 from utility import printLabels
 from utility import printResult
 import utility
 
 def main():
-	in = sys.argv[1]
-	in = string(in)
-	f = open(in, "r")
+	arg = sys.argv[1]
+	filename = str(arg)
+	f = open(filename, "r")
 	nodeList = list()
 	edgeList = list()
 
@@ -55,46 +57,44 @@ def main():
 		firstNode.add_edge(secondNode, float(length))
 		secondNode.add_edge(firstNode, float(length))
 
-	outputFile = open("output.txt", 'a')
+	# clears output file each time the program runs
+	outputFile = open("output.txt", 'w')
 	outputFile.write("\tSearch Algorithm Output\n\n")
 	outputFile.close()
 
-	dfs = depthFirstSearch.depthFirstSearch(startNode, goalNode)
-	dfsResult = dfs.depthFirstSearchFn()
-	printResult(dfsResult)
+	startPath = Path(startNode, None, 0)
 
-	bfs = breadthFirstSearch.breadthFirstSearch(startNode, goalNode)
-	bfsResult = bfs.breadthFirstSearchFn()
-	printResult(bfsResult)
+	dfsStart = (None, startPath)
+	dfsResult = general_search(dfsStart, "dfs")
+	#print result
 
-	dlsLimit = 2
-	dls = depthLimitSearch.depthLimitSearch(startNode, goalNode, dlsLimit)		
-	dlsResult = dls.depthLimitSearchFn()
-	printResult(dlsResult)
+	bfsStart = (None, startPath)
+	bfsResult = general_search(bfsStart, "bfs")
 
-	ids = iterativeDeepeningSearch.iterativeDeepeningSearch(startNode, goalNode)
-	idsResult = ids.iterativeDeepeningSearchFn()
-	printResult(idsResult)
+	# depth-limited search with default depth of 2
+	dlsStart = (2, startPath)
+	dlsResult = general_search(dlsStart, "depth_limited")
 
-	ucs = uniformCostSearch.uniformCostSearch(startNode, goalNode)
-	ucsResult = ucs.uniformCostSearchFn()
-	printResult(ucsResult)
+	for i in range(1,50):
+		idsStart = (i, startPath)
+		idsResult = general_search(idsStart, "iterative_deepening")
+	# printResult fn?
 
-	greedy = greedySearch.greedySearch(startNode, goalNode)
-	greedyResult = greedy.greedySearchFn()
-	printResult(greedyResult)
+	ucsStart = (0, startPath)
+	ucsResult = general_search(ucsStart, "uniform_cost")
 
-	astar = aStarSearch.aStarSearch(startNode, goalNode)
-	astarResult = astar.aStarSearchFn()
-	printResult(astarResult)
+	greedyStart = (startPath.node.heuristic, startPath) 
+	greedyResult = general_search(greedyStart, "greedy")
 
-	hcs = hillClimbingSearch.hillClimbingSearch(startNode, goalNode)
-	hcsResult = hcs.hillClimbingSearchFn()
-	printResult(hcsResult)
+	astarStart = (startPath.node.heuristic, startPath)
+	astarResult = general_search(astarStart, "astar")
 
-	beam = beamSearch.beamSearch(startNode, goalNode)
-	beamResult = beam.beamSearchFn()
-	printResult(beamResult)
+	hcStart = (startPath.node.heuristic, startPath)
+	hcResult = general_search(hcStart, "hill_climbing")
+
+	beamStart = (startPath.node.heuristic, startPath)
+	beamResult = general_search(beamStart, "beam")
+
 
 if __name__ == "__main__":
 	main()

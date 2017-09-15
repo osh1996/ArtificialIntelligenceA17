@@ -1,9 +1,2 @@
 	Search Algorithm Output
 
-	Expanded	Queue
-		S <M,SM		[
-
-
-	Expanded  	Queue
-      S      [<S>]
-      A      [<A,S>  <D,S>

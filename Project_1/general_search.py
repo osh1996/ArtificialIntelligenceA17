@@ -2,8 +2,8 @@ from Queue import PriorityQueue
 from node import Node
 import Queue
 
-def general_search(startNode, method):
-	q = make_queue(startNode, method)
+def general_search(start, method):
+	q = make_queue(start, method)
 	opened_nodes = list()
 	visited = set()
 	while(q):
@@ -36,7 +36,7 @@ def queue_sort(queue, node, opened_nodes, method):
 
 def goal_test(node):
 	if(node):
-		if (node.name = 'G'):
+		if (node.name == 'G'):
 			return True
 		return False
 
@@ -49,33 +49,33 @@ def expand(path, visited):
 	return out
 
 
-def make_queue(node,method):
+def make_queue(startNode,method):
 	if(method == 'dfs'):
 		q = Queue.LifoQueue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'bfs'):
 		q = Queue.Queue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'depth_limited'):
 		q = Queue.Queue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'iterative_deepening'):
 		q = Queue.Queue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'uniform_cost'):
 		q = Queue.PriorityQueue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'greedy'):
 		q = Queue.PriorityQueue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'astar'):
 		q = Queue.PriorityQueue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'hill_climbing'):
 		q = Queue.PriorityQueue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 	if(method == 'beam'):
 		q = Queue.PriorityQueue(maxsize=0)
-		q.add(node)
+		q.put_nowait(startNode)
 		
 
