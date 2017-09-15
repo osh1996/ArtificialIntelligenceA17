@@ -6,4 +6,10 @@ class Path:
 		self.pathCost = pathCost
 		self.fnValue = None
 
-	
+	def pathList(self):
+		lis = list()
+		while(prevNode.node):
+			node = prevNode.node
+			lis.append(node.name)
+			node = prevNove.node
+		return lis
