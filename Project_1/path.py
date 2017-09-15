@@ -1,4 +1,4 @@
-class QueueItem:
+class Path:
 	
 	def __init__(self, node, prevNode, pathCost):
 		self.node = node
