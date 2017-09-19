@@ -1,7 +1,11 @@
 from utils import *
 
-def alphabetaprune(state, game, d=4, prune_test=None, eval_Func=None):
+class Minimax();
 
+def alphabetaprune(state, game, d=4, prune_test=None, eval_Func=None):
+        """Search to determine best action: using alpha-beta pruning.
+        this cuts off the search and uses an evaluation function."""
+        
 	player=game.moveto(state)
 	
 	def maxValue(state, alpha, beta, depth):
@@ -29,7 +33,7 @@ def alphabetaprune(state, game, d=4, prune_test=None, eval_Func=None):
 	prune_test = (prune_test or
                       (lambda state, depth: depth > d or game.terminal_state(state)))
 	eval_Func = eval_Func or (lambda state: game.utility(state,player))
-	action, state = argmx(game.successors(state),
+	action, state = argmax(game.successors(state),
                               lambda ((a, s)): min_value(s, -infinity, infinity, 0))
 	return action 
 	
