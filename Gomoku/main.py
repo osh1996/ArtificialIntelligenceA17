@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import os
 import time
 
@@ -26,5 +27,3 @@ def presenceGo():
         if(os.path.isfile("Terrance.go")):
             return
         time.sleep(.05)
-
-
