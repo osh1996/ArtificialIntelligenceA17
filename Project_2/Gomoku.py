@@ -12,18 +12,6 @@ class Gomoku(Game):
         #legal moves are any square not yet taken
         return state.moves
 
-    def make_move(self, move, state):
-        if move not in state.moves:
-            return state #Illegal moves does nothing
-        board = state.board.copy(); board[move] = state.to_move
-        moves = list(state.moves); moves.remove(move)
-        return Struct(to_move=if_(state.to_move == 'W', 'B', 'W'),
-                      utility+self.compute_utility(board, move, state.to_move),
-                      board=board, moves=moves)
-    
-    def utility(self, state):
-        return state.utility
-
     def terminal_test(self, state):
         #A state is terminal if it is won or there are no empty squares
         return state.utility !=0 or len(state.moves) == 0
