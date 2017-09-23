@@ -2,6 +2,7 @@ import os.path
 import time
 
 def main():
+
      end = 1
      while(end):
         presenceGo()
@@ -21,14 +22,10 @@ def read_move():
     f = open(file, "r")
 
     move = f.read().split()
-    if(len(move) > 1):
-        column = move[1]
-        row = move[2]
-        return (column,row)
     else:
         print "No Move in File"
 
-    #pass to move function
+    #add move to board
     print "File Read"
     f.close()
 
