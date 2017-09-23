@@ -1,15 +1,16 @@
 import math
-
+import numpy
+from copy import copy
 
 def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
     if depth == 0:
         return evalState(state), state
-        rowsLeft, columnsLeft = np.where(state == 0)
+    rowsLeft, columnsLeft = numpy.where(state == 0)
     returnState = copy(state)
     if rowsLeft.shape[0] == 0:
         return evalState(state), returnState
     if maximizing == True:
-        utility = -math.inf
+        utility = -float("inf")
         for i in range(0, rowsLeft.shape[0]):
             nextState = copy(state)
             nextState[rowsLeft[i], columnsLeft[i]] = maxp
@@ -26,7 +27,7 @@ def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
             # print 'for max the best move is with utility ',utility,' n state ',returnState
         return utility, returnState
     else:
-        utility = math.inf
+        utility = float("inf")
         for i in range(0, rowsLeft.shape[0]):
             nextState = copy(state)
             nextState[rowsLeft[i], columnsLeft[i]] = minp
