@@ -9,7 +9,8 @@ def main():
             end = 0
             break
         print "Our Turn"
-        read_move()
+
+        opponent_move = read_move()
         #AB Pruning and MiniMax algorithms
 
         write_move("A", 1)
@@ -23,6 +24,7 @@ def read_move():
     if(len(move) > 1):
         column = move[1]
         row = move[2]
+        return (column,row)
     else:
         print "No Move in File"
 
