@@ -1,2 +1,8 @@
 
 *.pyc
+
+\.DS_Store
+
+Project_2/\.idea/
+
+WPI\.CS4341/
