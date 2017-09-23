@@ -17,9 +17,10 @@ def loop():
 
 
 def read_move():
+    a = 1
 
 def write_move(move):
-
+    b = 1
 
 def presenceGo():
     while(True):
