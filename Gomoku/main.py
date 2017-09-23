@@ -52,7 +52,7 @@ def write_move(column, row):
 def presenceGo():
     while (True):
         if (os.path.exists("Terrance.go")):
-            return
+            break
         time.sleep(.05)
 
 
