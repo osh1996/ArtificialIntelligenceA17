@@ -33,7 +33,6 @@ def printLabelsIDS(depth):
 def printLine(queue, method):
 	file = open("output.txt", 'a')
 	queueList = list(queue.queue)
-	print(queueList)
 	first = True
 	for pathTuple in queueList:
 		name = pathTuple[1].node.name

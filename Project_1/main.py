@@ -32,7 +32,6 @@ def main():
 	nodeObjects = list()
 	for item in nodeList:
 		current = item.split()
-		print(current[0])
 		name = current[0]
 		heur = float(current[1])
 		newNode = Node(name, heur)
