@@ -1,10 +1,10 @@
-import numpy
+import numpy as np
 from copy import copy
 
 def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
     if depth == 0:
         return evalState(state), state
-    rowsLeft, columnsLeft = numpy.where(state == 0)     ##generate list of potential actions
+    rowsLeft, columnsLeft = np.where(state == 0)     ##generate list of potential actions
     returnState = copy(state)
     if rowsLeft.shape[0] == 0:      ##if board is full
         return evalState(state), returnState
