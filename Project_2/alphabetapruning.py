@@ -46,5 +46,14 @@ def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
 
 def evalState(state):
     # placeholder function to evaluate state for possiblity of winning
+    grid = state.grid
+   # parseGrid(grid)
+
+
+
     heuristic = 0
+
+
     return heuristic
+
+
