@@ -1,3 +1,4 @@
+from gamestate import GameState
 class Minimax:
 
     def __init__(self):
