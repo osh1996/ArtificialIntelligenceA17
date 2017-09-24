@@ -64,5 +64,33 @@ def generateActions(state):
                 actions.append(newAction)
     return actions
 
+def trimGrid(state):
+    lowestColumn = 14
+    highestColumn = 0
+    lowestRow = 14
+    highestRow = 0
+    for x in range(0,14):
+        for y in range(0,14):
+            if state.grid[x][y] is not "e":
+                if x < lowestColumn:
+                    lowestColumn = x
+                if x > highestColumn:
+                    highestColumn = x
+                if y < lowestRow:
+                    lowestRow = y
+                if y > highestRow:
+                    highestRow = y
+
+    gridColumns = max(highestColumn-lowestColumn+2, 14)
+    gridRows = max(highestRow-lowestRow+2, 14)
+    gridSize = (gridColumns, gridRows)
+
+    firstItemX = min(lowestColumn-1, 0)
+    firstItemY = min(lowestRow-1, 0)
+    first = (firstItemX, firstItemY)
+
+    output = (gridSize, first)
+    return output
+
 
 
