@@ -12,4 +12,4 @@ class GameState:
     def addMove(self, moveList):
         player = moveList[0]
         column = moveList[1]
-        row = moveList
+        row = moveList[2]
