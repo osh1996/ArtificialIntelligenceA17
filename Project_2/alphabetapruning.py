@@ -1,4 +1,3 @@
-import math
 import numpy
 from copy import copy
 
