@@ -9,7 +9,7 @@ def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
     returnState = copy(state)
     if rowsLeft.shape[0] == 0:      ##if board is full
         return evalState(state), returnState
-    if maximizing == True:
+    if maximizing is True:
         utility = -float("inf")
         for i in range(0, rowsLeft.shape[0]):
             nextState = copy(state)
@@ -49,11 +49,21 @@ def evalState(state):
     grid = state.grid
    # parseGrid(grid)
 
-
-
     heuristic = 0
-
-
     return heuristic
+
+def generateActions(state):
+    # get grid with 1 layer of empties around current board
+    gridSize = (8,8)
+    first = (3,3)       # tile in the top left corner of trimmed game grid
+    actions = list()
+
+    for x in range(first[0], first[0]+gridSize[0]):
+        for y in range(first[1], first[1]+gridSize[1]):
+            if state.grid[x][y] is "e":
+                newAction = (x, y)
+                actions.append(newAction)
+    return actions
+
 
 
