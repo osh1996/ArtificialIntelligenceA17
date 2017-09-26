@@ -24,7 +24,7 @@ def minimax(state, alpha, beta, maximizing, depth):
             # print 'for max the best move is with utility ',utility,' n state ',returnState
         return utility, returnState
     else:
-        utility = float("inf")
+        nextState = 0
         for action in actions:
             nextState = copy(action)
             returnState = nextState
@@ -62,6 +62,8 @@ def generateActions(state):
                 actions.append(newAction)
     return actions
 
+## takes in the state of the board
+## returns coordinates of a smaller board trimmed around pieces in play
 def trimGrid(state):
     lowestColumn = 14
     highestColumn = 0
