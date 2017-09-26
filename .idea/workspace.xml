@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e893a74-83f0-4e59-8386-00e2432546a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gomoku/parsing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gomoku/main.py" afterPath="$PROJECT_DIR$/Gomoku/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gomoku/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="2412">
+              <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -30,12 +28,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parsing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parsing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gomoku/parsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="55" column="38" lean-forward="false" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1506469789529" expanded="true" signature="120:346" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="199:327" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="448:681" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="525:662" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="783:1492" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="866:1139" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="960:1071" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="1199:1472" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="1293:1404" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="1679:1952" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="1773:1884" ph="..." />
+                <marker date="1506469789529" expanded="true" signature="2106:2217" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,8 +74,8 @@
       <file leaf-file-name="alphabetapruning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project_2/alphabetapruning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="432">
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -75,9 +86,13 @@
       <file leaf-file-name="gamestate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gomoku/gamestate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="198">
+              <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <marker date="1506469697004" expanded="true" signature="16:259" ph="..." />
+                <marker date="1506469697004" expanded="true" signature="107:140" ph="..." />
+                <marker date="1506469697004" expanded="true" signature="175:259" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/Gomoku/gametree.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -111,8 +126,8 @@
         <option value="$PROJECT_DIR$/Project_2/alphabetapruning.py" />
         <option value="$PROJECT_DIR$/Gomoku/gametree.py" />
         <option value="$PROJECT_DIR$/Gomoku/parsing.py" />
-        <option value="$PROJECT_DIR$/Gomoku/main.py" />
         <option value="$PROJECT_DIR$/Gomoku/gamestate.py" />
+        <option value="$PROJECT_DIR$/Gomoku/main.py" />
       </list>
     </option>
   </component>
@@ -293,7 +308,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1506469697004" expanded="true" signature="16:259" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="107:140" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="175:259" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -342,7 +361,122 @@
     <entry file="file://$PROJECT_DIR$/Gomoku/gametree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/gamestate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <marker date="1506469697004" expanded="true" signature="16:259" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="107:140" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="175:259" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/Terrance.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/parsing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1506469789529" expanded="true" signature="120:346" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="199:327" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="448:681" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="525:662" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="783:1492" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="866:1139" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="960:1071" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1199:1472" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1293:1404" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1679:1952" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1773:1884" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="2106:2217" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/move_file">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_2/alphabetapruning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_2/alphabetapruning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/gamestate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1506469697004" expanded="true" signature="16:259" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="107:140" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="175:259" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gomoku/minimax.py" />
+    <entry file="file://$PROJECT_DIR$/Project_2/syspatheditor.py" />
+    <entry file="file://$PROJECT_DIR$/Project_2/syspatheditor.py" />
+    <entry file="file://$PROJECT_DIR$/Gomoku/minimax.py" />
+    <entry file="file://$PROJECT_DIR$/Gomoku/gametree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -351,8 +485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project_2/alphabetapruning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -377,16 +511,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gomoku/gamestate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="198">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <marker date="1506469697004" expanded="true" signature="16:259" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="107:140" ph="..." />
+            <marker date="1506469697004" expanded="true" signature="175:259" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gomoku/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="2412">
+          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -395,9 +533,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gomoku/parsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="55" column="38" lean-forward="false" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1506469789529" expanded="true" signature="120:346" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="199:327" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="448:681" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="525:662" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="783:1492" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="866:1139" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="960:1071" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1199:1472" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1293:1404" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1679:1952" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="1773:1884" ph="..." />
+            <marker date="1506469789529" expanded="true" signature="2106:2217" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -5,6 +5,7 @@ import time
 # while not at endgame, waits for our turn, reads opponent move, then writes a move
 def main():
     end = True
+    color = ''
     while (end):
         presenceGo()
         if (os.path.exists("end_game")):
@@ -14,10 +15,13 @@ def main():
         print "Our Turn"
 
         opponent_move = read_move()
+        if(opponent_move == None):
+            color = 'w'
+            write_move(7,7)
+        else:
+            # AB Pruning and MiniMax algorithms
 
-        # AB Pruning and MiniMax algorithms
-
-        write_move(1, 1)
+            write_move(1, 1)
 
 
 # reads the file move_file and returns the parses the move as a list
