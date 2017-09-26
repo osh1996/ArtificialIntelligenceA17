@@ -1,20 +1,18 @@
 import numpy as np
 from copy import copy
 
-def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
+def minimax(state, alpha, beta, maximizing, depth):
     if depth == 0:
         return evalState(state), state
-    rowsLeft, columnsLeft = np.where(state == 0)     ##generate list of potential actions
+    actions = generateActions(state)     ##generate list of potential actions
     returnState = copy(state)
-    if rowsLeft.shape[0] == 0:      ##if board is full
+    if len(actions) == 0:      ##if board is full
         return evalState(state), returnState
     if maximizing is True:
         utility = -float("inf")
-        for i in range(0, rowsLeft.shape[0]):
-            nextState = copy(state)
-            nextState[rowsLeft[i], columnsLeft[i]] = maxp
-            # print 'in max currently the Nextstate is ',nextState,'\n\n'
-            newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1, maxp, minp)
+        for action in actions:
+            nextState = copy(action)
+            newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1)
             if newUtility > utility:
                 utility = newUtility
                 returnState = copy(nextState)
@@ -27,20 +25,20 @@ def minimax(state, alpha, beta, maximizing, depth, maxp, minp):
         return utility, returnState
     else:
         utility = float("inf")
-        for i in range(0, rowsLeft.shape[0]):
-            nextState = copy(state)
-            nextState[rowsLeft[i], columnsLeft[i]] = minp
+        for action in actions:
+            nextState = copy(action)
+            returnState = nextState
             # print 'in min currently the Nextstate is ',nextState,'\n\n'
-            newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1, maxp, minp)
+            newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1)
             if newUtility < utility:
                 utility = newUtility
-                returnState = copy(nextState)
             if utility < beta:
                 beta = utility
+                returnState = newState
             if alpha >= beta:
                 # print 'pruned'
                 break
-        return utility, returnState
+        return utility, nextState
 
 
 def evalState(state):
