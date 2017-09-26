@@ -1,9 +1,8 @@
 class GameState:
 
-    def __init__(self, grid, alpha, beta, whosMove):
+    def __init__(self, grid, alpha, beta):
         self.grid = grid
         self.eval = 0
-        self.whosMove = whosMove
         self.successors = list()
 
 
