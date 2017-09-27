@@ -7,7 +7,6 @@ from minimax import minimax
 # while not at endgame, waits for our turn, reads opponent move, then writes a move
 def main():
     end = True
-    color = ''
     firstMove = True
     tree = None
     while (end):
@@ -15,7 +14,7 @@ def main():
         if os.path.exists("end_game"):
             end = False
             break
-        print "Our Turn"
+        #print "Our Turn"
 
         opponent_move = read_move()
         if firstMove is True:

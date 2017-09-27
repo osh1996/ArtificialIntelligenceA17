@@ -30,7 +30,6 @@ def main():
                 write_move(x,y)
                 firstMove = False
         else:
-            assert tree is not None
             tree.getNewRoot(opponent_move)
             best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), True, 10)
             x, y = chosen_state.coordinate

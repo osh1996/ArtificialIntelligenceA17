@@ -9,6 +9,7 @@ def minimax(state, alpha, beta, maximizing, depth):
     actions = generateActions(state)     ##generate list of potential actions
     returnState = copy(state)
     if len(actions) == 0:      ##if board is full
+        print returnState.coordinate
         return evalGoalState(state), returnState
     if maximizing is True:
         for action in actions:
@@ -72,9 +73,7 @@ def evalGoalState(state):
     return heuristic
 
 def generateActions(state):
-    # get grid with 1 layer of empties around current board
-    gridSize = (8,8)
-    first = (3,3)       # tile in the top left corner of trimmed game grid
+    gridSize, first = trimGrid(state)
     actions = list()
 
     for x in range(first[0], first[0]+gridSize[0]):
