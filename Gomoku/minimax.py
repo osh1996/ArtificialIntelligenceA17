@@ -1,6 +1,7 @@
 import numpy as np
 from copy import copy
 from gamestate import GameState
+import parsing
 
 def minimax(state, alpha, beta, maximizing, depth):
     if depth == 0:
@@ -49,9 +50,16 @@ def minimax(state, alpha, beta, maximizing, depth):
 
 
 def evalState(state):
-    # placeholder function to evaluate state for possiblity of winning
     grid = state.grid
-   # parseGrid(grid)
+    row_list = parsing.getRows(grid)
+    col_list = parsing.getCols(grid)
+    fwd_diag_list, fwd_diag_coord = parsing.getFwdDiags(grid)
+    back_diag_list, back_diag_coord = parsing.getBackDiags(grid)
+
+
+    opponent_win = ['xxxxx']
+    output_o = None
+
 
     heuristic = 0
     return heuristic
