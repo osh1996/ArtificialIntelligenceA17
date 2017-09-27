@@ -9,8 +9,8 @@ def main():
     end = True
     color = ''
     firstMove = True
+    tree = None
     while (end):
-        tree = None
         presenceGo()
         if os.path.exists("end_game"):
             end = False
