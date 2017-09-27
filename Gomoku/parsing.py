@@ -187,6 +187,11 @@ def checkBoard(rows, cols, fwd_diag, fwd_diag_coord, back_diag, back_diag_coord,
     fwd_result = checkFwdDiags(fwd_diag, fwd_diag_coord, searchList)
     back_result = checkFwdDiags(back_diag, back_diag_coord, searchList)
 
+    if row_result and col_result and fwd_result and back_result is None:
+        return False
+    else:
+        return True
+
 #testing stuff
 
 # board = np.identity(15, int)

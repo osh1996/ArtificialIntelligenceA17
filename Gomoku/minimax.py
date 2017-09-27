@@ -5,11 +5,11 @@ import parsing
 
 def minimax(state, alpha, beta, maximizing, depth):
     if depth == 0:
-        return evalState(state), state
+        return evalGoalState(state), state
     actions = generateActions(state)     ##generate list of potential actions
     returnState = copy(state)
     if len(actions) == 0:      ##if board is full
-        return evalState(state), returnState
+        return evalGoalState(state), returnState
     if maximizing is True:
         for action in actions:
             new_action = copy(action)
@@ -49,19 +49,26 @@ def minimax(state, alpha, beta, maximizing, depth):
         return utility, returnState
 
 
-def evalState(state):
+def evalGoalState(state):
     grid = state.grid
+    heuristic = 0
     row_list = parsing.getRows(grid)
     col_list = parsing.getCols(grid)
     fwd_diag_list, fwd_diag_coord = parsing.getFwdDiags(grid)
     back_diag_list, back_diag_coord = parsing.getBackDiags(grid)
 
+    lose_string = ['xxxxx']
+    win_string = ['ooooo']
 
-    opponent_win = ['xxxxx']
-    output_o = None
+    opponent_win = parsing.checkBoard(row_list, col_list, fwd_diag_list,
+                                  fwd_diag_coord, back_diag_list, back_diag_coord, lose_string)
+    we_win = parsing.checkBoard(row_list, col_list, fwd_diag_list,
+                                  fwd_diag_coord, back_diag_list, back_diag_coord, win_string)
+    if opponent_win is True:
+        heuristic = -1
+    if win_string is True:
+        heuristic = 1
 
-
-    heuristic = 0
     return heuristic
 
 def generateActions(state):
