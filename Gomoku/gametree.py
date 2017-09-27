@@ -6,9 +6,9 @@ class GameTree:
     def __init__(self, we_go_first, x, y):
         init_grid = np.full((15,15), "e")
         if we_go_first:
-            init_grid[x][y] = "b"
+            init_grid[x][y] = 'o'
         else:
-            init_grid[x][y] = "w"
+            init_grid[x][y] = 'x'
         self.root = GameState(init_grid, x, y)
 
     def getNewRoot(self, opponentsMove):

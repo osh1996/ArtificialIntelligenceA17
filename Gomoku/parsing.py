@@ -181,6 +181,12 @@ def checkBackDiags(backDiagList, coordList, searchList):
                 return coord
         i += 1
 
+def checkBoard(rows, cols, fwd_diag, fwd_diag_coord, back_diag, back_diag_coord, searchList):
+    row_result = checkRows(rows, searchList)
+    col_result = checkCols(cols, searchList)
+    fwd_result = checkFwdDiags(fwd_diag, fwd_diag_coord, searchList)
+    back_result = checkFwdDiags(back_diag, back_diag_coord, searchList)
+
 #testing stuff
 
 # board = np.identity(15, int)
