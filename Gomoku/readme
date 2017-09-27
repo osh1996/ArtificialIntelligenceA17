@@ -1,0 +1,12 @@
+1. David Swenarton, Christopher O'Shea, Tung Truong
+2. Add Numpy to the pycharm library, run Terrance
+3. We use static evaluation in minimax to determine the value of a given board. We convert the game board into a list of strings.
+The rows, columns, and diagonals are converted to strings. We then use functions in parsing.py to find end game conditions,
+and we assign a value to the board depending on if we win, lose, or nothing happens.
+4. Our evaluation function looks for moves such as three in a row that will eventually lead to the program winning the game.
+This function is in the gameState class. It first checks ffor win conditions for next move, two moves, or losing in next move.
+5. We avoid over-expanding minimax tree with depth-limited search.
+6. a. We tested our program by running it against copy of itself.
+   b. Strengths:
+      Weaknesses:
+7. A discussion of why the evaluation function and the heuristic(s) you picked are good choices.
