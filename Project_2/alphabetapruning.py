@@ -1,5 +1,6 @@
 import numpy as np
 from copy import copy
+from gamestate import GameState
 
 def minimax(state, alpha, beta, maximizing, depth):
     if depth == 0:
@@ -9,9 +10,11 @@ def minimax(state, alpha, beta, maximizing, depth):
     if len(actions) == 0:      ##if board is full
         return evalState(state), returnState
     if maximizing is True:
-        utility = -float("inf")
         for action in actions:
-            nextState = copy(action)
+            new_action = copy(action)
+            new_grid = state.grid
+            new_grid[new_action[0]][new_action[1]] = "o"
+            nextState = GameState(new_grid, new_action[0], new_action[1])
             newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1)
             if newUtility > utility:
                 utility = newUtility
@@ -26,7 +29,10 @@ def minimax(state, alpha, beta, maximizing, depth):
     else:
         nextState = 0
         for action in actions:
-            nextState = copy(action)
+            new_action = copy(action)
+            new_grid = state.grid
+            new_grid[new_action[0]][new_action[1]] = "x"
+            nextState = GameState(new_grid, new_action[0], new_action[1])
             returnState = nextState
             # print 'in min currently the Nextstate is ',nextState,'\n\n'
             newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1)
@@ -38,7 +44,7 @@ def minimax(state, alpha, beta, maximizing, depth):
             if alpha >= beta:
                 # print 'pruned'
                 break
-        return utility, nextState
+        return utility, returnState
 
 
 def evalState(state):

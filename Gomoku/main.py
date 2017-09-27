@@ -1,27 +1,45 @@
 import os.path
 import time
+from gametree import GameTree
+from minimax import minimax
 
 
 # while not at endgame, waits for our turn, reads opponent move, then writes a move
 def main():
     end = True
     color = ''
+    firstMove = True
     while (end):
+        tree = None
         presenceGo()
-        if (os.path.exists("end_game")):
+        if os.path.exists("end_game"):
             end = False
-            print "Reached Endgame"
             break
         print "Our Turn"
 
         opponent_move = read_move()
-        if(opponent_move == None):
-            color = 'w'
-            write_move(7,7)
+        if firstMove is True:
+            if(opponent_move == None):
+                tree = GameTree(True, 7, 7)
+                write_move(7,7)
+                firstMove = False
+            else:
+                tree = GameTree(False, opponent_move[2], opponent_move[1])
+                best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), False, 10)
+                x, y = chosen_state.coordinate
+                write_move(x,y)
+                firstMove = False
         else:
-            # AB Pruning and MiniMax algorithms
+            assert tree is not None
+            tree.getNewRoot(opponent_move)
+            best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), True, 10)
+            x, y = chosen_state.coordinate
+            tree.root = chosen_state
+            write_move(x,y)
 
-            write_move(1, 1)
+
+
+
 
 
 # reads the file move_file and returns the parses the move as a list
@@ -33,9 +51,9 @@ def read_move():
     if (len(move) < 3):
         print "No Move in File"
         return None
+    move[2] = move[2]-1
     move[1] = getColIndex(move[1]) #converts to index form
 
-    print "File Read"
     f.close()
     return move
 
@@ -45,7 +63,7 @@ def write_move(column, row):
     file = "move_file"
     f = open(file, 'w')
 
-    move = "Terrance " + getColName(column) + " " + str(row) # converts to final output
+    move = "Terrance " + getColName(column) + " " + str(row+1) # converts to final output
     print move
     f.write(move)
 
