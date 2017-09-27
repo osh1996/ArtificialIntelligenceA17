@@ -127,11 +127,10 @@ def topPriority():
 
 # checks rows for any top priority moves and returns a tuple of the best move
 # tested
-def checkRows(rowList):
+def checkRows(rowList, searchList):
     i = 0
-    topList = topPriority()
     for item in rowList:
-        for case in topList:
+        for case in searchList:
             index = item.find(case)
             if (index > -1):
                 addIndex = case.find('e')
@@ -142,11 +141,11 @@ def checkRows(rowList):
 
 # checks columns for any top priority moves and returns a tuple of the best move
 # tested
-def checkCols(colList):
+def checkCols(colList, searchList):
     i = 0
     topList = topPriority()
     for item in colList:
-        for case in topList:
+        for case in searchList:
             index = item.find(case)
             if (index > -1):
                 addIndex = case.find('e')
@@ -157,11 +156,10 @@ def checkCols(colList):
 
 # checks forward diagonals for top priority moves and returns a tuple
 # tested
-def checkFwdDiags(fwdDiagList, coordList):
+def checkFwdDiags(fwdDiagList, coordList, searchList):
     i = 0
-    topList = topPriority()
     for item in fwdDiagList:
-        for case in topList:
+        for case in searchList:
             index = item.find(case)
             if (index > -1):
                 addIndex = case.find('e')
@@ -172,11 +170,10 @@ def checkFwdDiags(fwdDiagList, coordList):
 
 # checks the backward diagonals for top priority moves and returns a tuple
 # tested
-def checkBackDiags(backDiagList, coordList):
+def checkBackDiags(backDiagList, coordList, searchList):
     i = 0
-    topList = topPriority()
     for item in backDiagList:
-        for case in topList:
+        for case in searchList:
             index = item.find(case)
             if (index > -1):
                 addIndex = case.find('e')

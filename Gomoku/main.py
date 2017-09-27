@@ -51,7 +51,7 @@ def read_move():
     if (len(move) < 3):
         print "No Move in File"
         return None
-    move[2] = move[2]-1
+    move[2] = int(move[2])-1
     move[1] = getColIndex(move[1]) #converts to index form
 
     f.close()
