@@ -114,7 +114,6 @@ def getBackDiags(board):
 # top priority moves
 def topPriority():
     l = list()
-    l.append('x' 'e' 'x' 'x' 'x')
     l.append('xxexx')
     l.append('xxxex')
     l.append('oxxxxe')
@@ -122,8 +121,18 @@ def topPriority():
     l.append('xxexx'[::-1])
     l.append('xxxex'[::-1])
     l.append('oxxxxe'[::-1])
+    l.append('eexxxe')
     return l
 
+def winningStrings():
+    l = list()
+    l.append('ooeoo')
+    l.append('oooeo')
+    l.append('oeooo')
+    l.append('xooooe')
+    l.append('eeoooe')
+    l.append('eoooee')
+    l.append('eoooox')
 
 # checks rows for any top priority moves and returns a tuple of the best move
 # tested
