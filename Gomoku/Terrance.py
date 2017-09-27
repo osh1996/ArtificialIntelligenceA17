@@ -49,7 +49,7 @@ def read_move():
 
     move = f.read().split()
     if (len(move) < 3):
-        print "No Move in File"
+        #print "No Move in File"
         return None
     move[2] = int(move[2])-1
     move[1] = getColIndex(move[1]) #converts to index form
@@ -76,7 +76,7 @@ def presenceGo():
     while (True):
         if (os.path.exists("Terrance.go")):
             break
-        time.sleep(.05)
+        #time.sleep(.05)
 
 #takes a column string and returns an index
 def getColIndex(string):
