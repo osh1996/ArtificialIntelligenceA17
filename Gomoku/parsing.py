@@ -111,7 +111,8 @@ def getBackDiags(board):
     return diagList, cList
 
 
-# top priority moves
+# returns a list of sequences
+# these sequences are signify necessary defensive moves
 def topPriority():
     l = list()
     l.append('xxexx')
@@ -124,15 +125,20 @@ def topPriority():
     l.append('eexxxe')
     return l
 
+# returns a list of sequences that allow us to win next move
 def winningStrings():
     l = list()
     l.append('ooeoo')
     l.append('oooeo')
     l.append('oeooo')
     l.append('xooooe')
+    l.append('eoooox')
+
+# returns a list of sequences that allow us to win in two moves
+def winInTwo():
+    l = list()
     l.append('eeoooe')
     l.append('eoooee')
-    l.append('eoooox')
 
 # checks rows for any top priority moves and returns a tuple of the best move
 # tested

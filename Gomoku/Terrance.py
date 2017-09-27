@@ -20,15 +20,15 @@ def main():
         opponent_move = read_move()
         if firstMove is True:
             if(opponent_move == None):
+                firstMove = False
                 tree = GameTree(True, 7, 7)
                 write_move(7,7)
-                firstMove = False
             else:
+                firstMove = False
                 tree = GameTree(False, opponent_move[2], opponent_move[1])
                 best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), False, 10)
                 x, y = chosen_state.coordinate
                 write_move(x,y)
-                firstMove = False
         else:
             tree.getNewRoot(opponent_move)
             best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), True, 10)

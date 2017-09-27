@@ -73,45 +73,14 @@ def evalGoalState(state):
     return heuristic
 
 def generateActions(state):
-    gridSize, first = trimGrid(state)
     actions = list()
 
-    for x in range(first[0], first[0]+gridSize[0]):
-        for y in range(first[1], first[1]+gridSize[1]):
+    for x in range(0, 14):
+        for y in range(0, 14):
             if state.grid[x][y] is "e":
                 newAction = (x, y)
                 actions.append(newAction)
     return actions
-
-## takes in the state of the board
-## returns coordinates of a smaller board trimmed around pieces in play
-def trimGrid(state):
-    lowestColumn = 14
-    highestColumn = 0
-    lowestRow = 14
-    highestRow = 0
-    for x in range(0,14):
-        for y in range(0,14):
-            if state.grid[x][y] is not "e":
-                if x < lowestColumn:
-                    lowestColumn = x
-                if x > highestColumn:
-                    highestColumn = x
-                if y < lowestRow:
-                    lowestRow = y
-                if y > highestRow:
-                    highestRow = y
-
-    gridColumns = max(highestColumn-lowestColumn+2, 14)
-    gridRows = max(highestRow-lowestRow+2, 14)
-    gridSize = (gridColumns, gridRows)
-
-    firstItemX = min(lowestColumn-1, 0)
-    firstItemY = min(lowestRow-1, 0)
-    first = (firstItemX, firstItemY)
-
-    output = (gridSize, first)
-    return output
 
 
 
