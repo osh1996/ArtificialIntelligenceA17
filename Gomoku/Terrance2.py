@@ -66,7 +66,7 @@ def write_move(column, row):
     file = "move_file"
     f = open(file, 'w')
 
-    move = "Terrance " + getColName(column) + " " + str(row+1) # converts to final output
+    move = "Terrance2 " + getColName(column) + " " + str(row+1) # converts to final output
     print move
     f.write(move)
 
@@ -77,7 +77,7 @@ def write_move(column, row):
 # polls for presence of our team's .go file at a rate of 50Hz
 def presenceGo():
     while (True):
-        if (os.path.exists("Terrance.go")):
+        if (os.path.exists("Terrance2.go")):
             break
         #time.sleep(.05)
 
