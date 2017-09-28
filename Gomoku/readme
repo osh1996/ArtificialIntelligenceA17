@@ -6,7 +6,12 @@ and we assign a value to the board depending on if we win, lose, or nothing happ
 4. Our evaluation function looks for moves such as three in a row that will eventually lead to the program winning the game.
 This function is in the gameState class. It first checks ffor win conditions for next move, two moves, or losing in next move.
 5. We avoid over-expanding minimax tree with depth-limited search.
-6. a. We tested our program by running it against copy of itself.
-   b. Strengths:
-      Weaknesses:
+6. a. We tested our program by running it against copy of itself, and also a test opponent that randomly picks
+        unoccupied spaces for moves.
+   b. Strengths: runs quickly
+      Weaknesses: inconsistent checking for occupied spaces. design is subpar
 7. A discussion of why the evaluation function and the heuristic(s) you picked are good choices.
+    our evaluation function iterates through the rows, columns, and diagonals of a given board state. The function
+    takes a list of configuration
+
+    NOTE: Terrance2 and Brenda are test opponents. Run Terrance.py for our AI.

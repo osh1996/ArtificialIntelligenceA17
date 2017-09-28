@@ -31,7 +31,6 @@ def main():
                 tree = GameTree(False, opponent_move[2], opponent_move[1])
                 tree.getNewRoot(opponent_move)
                 best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), False, 3, occupied)
-                print occupied
                 x, y = chosen_state.coordinate
                 write_move(x,y)
                 occupied.add((x,y))
@@ -39,17 +38,12 @@ def main():
             tree.getNewRoot(opponent_move)
             best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), True, 3, occupied)
             value = chosen_state.evaluate(chosen_state.grid)
-            #if value is -1:
-
-            print occupied
             x, y = chosen_state.coordinate
+            if (x,y) in occupied:
+                evaluation = chosen_state.evaluate()
             tree.root = chosen_state
             write_move(x,y)
             occupied.add((x,y))
-
-
-
-
 
 
 # reads the file move_file and returns the parses the move as a list
@@ -59,14 +53,9 @@ def read_move():
 
     move = f.read().split()
     if (len(move) < 3):
-        #print "No Move in File"
         return None
     move[2] = int(move[2])-1
     move[1] = getColIndex(move[1]) #converts to index form
-    # print "MOVES"
-    # print move
-    # print move[1]
-    # print move[2]
     f.close()
     return move
 
