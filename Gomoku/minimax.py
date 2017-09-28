@@ -24,9 +24,7 @@ def minimax(state, alpha, beta, maximizing, depth, occupied):
             if state.utility > alpha:
                 alpha = state.utility
             if alpha >= beta:
-                # print 'pruned'
                 break
-            # print 'for max the best move is with utility ',utility,' n state ',returnState
         return state.utility, returnState
     else:
         nextState = 0
@@ -44,7 +42,6 @@ def minimax(state, alpha, beta, maximizing, depth, occupied):
                 beta = state.utility
                 returnState = newState
             if alpha >= beta:
-                # print 'pruned'
                 break
         return state.utility, returnState
 
