@@ -133,12 +133,14 @@ def winningStrings():
     l.append('oeooo')
     l.append('xooooe')
     l.append('eoooox')
+    return l
 
 # returns a list of sequences that allow us to win in two moves
 def winInTwo():
     l = list()
     l.append('eeoooe')
     l.append('eoooee')
+    return l
 
 # checks rows for any top priority moves and returns a tuple of the best move
 # tested

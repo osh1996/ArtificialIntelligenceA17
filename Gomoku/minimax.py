@@ -3,10 +3,10 @@ from copy import copy
 from gamestate import GameState
 import parsing
 
-def minimax(state, alpha, beta, maximizing, depth):
+def minimax(state, alpha, beta, maximizing, depth, occupied):
     if depth == 0:
         return evalGoalState(state), state
-    actions = generateActions(state)     ##generate list of potential actions
+    actions = generateActions(state, occupied)     ##generate list of potential actions
     returnState = copy(state)
     if len(actions) == 0:      ##if board is full
         return evalGoalState(state), returnState
@@ -17,7 +17,7 @@ def minimax(state, alpha, beta, maximizing, depth):
             new_grid[new_action[0]][new_action[1]] = "o"
             nextState = GameState(new_grid, new_action[0], new_action[1])
             state.successors.append(nextState)
-            newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1)
+            newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1, occupied)
             if newUtility > state.utility:
                 state.utility = newUtility
                 returnState = copy(nextState)
@@ -37,7 +37,7 @@ def minimax(state, alpha, beta, maximizing, depth):
             nextState = GameState(new_grid, new_action[0], new_action[1])
             returnState = nextState
             state.successors.append(nextState)
-            newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1)
+            newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1, occupied)
             if newUtility < state.utility:
                 state.utility = newUtility
             if state.utility < beta:
@@ -71,7 +71,7 @@ def evalGoalState(state):
 
     return heuristic
 
-def generateActions(state):
+def generateActions(state, occupied):
     actions = list()
     coordinate = state.coordinate
     flag = False
@@ -80,18 +80,20 @@ def generateActions(state):
     yy = state.coordinate[1]
 
     ## checks adjacent tiles
-    for x in range(xx-1, xx+1):
-        for y in range(yy-1, yy+1):
+    for x in range(max(xx-1, 1), min(xx+1, 15)):
+        for y in range(max(yy-1, 1), min(yy+1, 15)):
             if state.grid[x][y] is "e":
                 newAction = (x, y)
-                actions.append(newAction)
-                flag = True
+                if newAction not in occupied:
+                    actions.append(newAction)
+                    flag = True
     if not flag:
         for x in range(0,15):
             for y in range(0,15):
                 if state.grid[x][y] is 'e':
-                    newAction = (x,y)
-                    actions.append(newAction)
+                    newAction = (x, y)
+                    if newAction not in occupied:
+                        actions.append(newAction)
     return actions
 
 

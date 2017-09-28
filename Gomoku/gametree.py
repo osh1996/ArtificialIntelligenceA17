@@ -1,4 +1,3 @@
-import numpy as np
 from gamestate import GameState
 
 class GameTree:

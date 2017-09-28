@@ -5,6 +5,7 @@ class GameState:
     def __init__(self, grid, x, y):
         self.grid = grid
         self.utility = 0
+        self.evaluation = self.evaluate(grid)
         self.coordinate = (x,y)
         self.successors = list()
 

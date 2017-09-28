@@ -1,4 +1,5 @@
 import os
+import time
 
 def main():
     board = [['e' for x in range(0,15)] for x in range(0,15)]
@@ -13,15 +14,15 @@ def main():
             board[0][0] = 'o'
             write_move(0,0)
         else:
-            opp_x = opponent_move[2]
-            opp_y = opponent_move[1]
+            opp_x = int(opponent_move[2])
+            opp_y = int(opponent_move[1])
 
             board[opp_x][opp_y] = 'o'
             flag = False
-            for x in range(0,14):
+            for x in range(0,15):
                 if flag is True:
                     break
-                for y in range(0,14):
+                for y in range(0,15):
                     if board[x][y] is 'e':
                         flag = True
                         write_move(x,y)
@@ -34,6 +35,7 @@ def main():
 # reads the file move_file and returns the parses the move as a list
 def read_move():
     file = "move_file"
+    time.sleep(1)
     f = open(file, "r")
 
     move = f.read().split()
@@ -68,7 +70,7 @@ def presenceGo():
     while (True):
         if (os.path.exists("Brenda.go")):
             break
-        #time.sleep(.05)
+        time.sleep(.05)
 
 #takes a column string and returns an index
 def getColIndex(string):
