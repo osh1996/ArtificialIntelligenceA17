@@ -9,7 +9,6 @@ def minimax(state, alpha, beta, maximizing, depth):
     actions = generateActions(state)     ##generate list of potential actions
     returnState = copy(state)
     if len(actions) == 0:      ##if board is full
-        print returnState.coordinate
         return evalGoalState(state), returnState
     if maximizing is True:
         for action in actions:
@@ -19,16 +18,16 @@ def minimax(state, alpha, beta, maximizing, depth):
             nextState = GameState(new_grid, new_action[0], new_action[1])
             state.successors.append(nextState)
             newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1)
-            if newUtility > utility:
-                utility = newUtility
+            if newUtility > state.utility:
+                state.utility = newUtility
                 returnState = copy(nextState)
-            if utility > alpha:
-                alpha = utility
+            if state.utility > alpha:
+                alpha = state.utility
             if alpha >= beta:
                 # print 'pruned'
                 break
             # print 'for max the best move is with utility ',utility,' n state ',returnState
-        return utility, returnState
+        return state.utility, returnState
     else:
         nextState = 0
         for action in actions:
@@ -39,15 +38,15 @@ def minimax(state, alpha, beta, maximizing, depth):
             returnState = nextState
             state.successors.append(nextState)
             newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1)
-            if newUtility < utility:
-                utility = newUtility
-            if utility < beta:
-                beta = utility
+            if newUtility < state.utility:
+                state.utility = newUtility
+            if state.utility < beta:
+                beta = state.utility
                 returnState = newState
             if alpha >= beta:
                 # print 'pruned'
                 break
-        return utility, returnState
+        return state.utility, returnState
 
 
 def evalGoalState(state):

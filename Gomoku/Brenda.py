@@ -1,40 +1,31 @@
-import os.path
-import time
-from gametree import GameTree
-from minimax import minimax
+import os
 
-
-# while not at endgame, waits for our turn, reads opponent move, then writes a move
 def main():
+    board = [['e' for x in range(0,15)] for x in range(0,15)]
     end = True
-    firstMove = True
-    tree = None
     while (end):
         presenceGo()
         if os.path.exists("end_game"):
             end = False
             break
-
         opponent_move = read_move()
-        if firstMove is True:
-            if(opponent_move == None):
-                firstMove = False
-                tree = GameTree(True, 7, 7)
-                write_move(7,7)
-            else:
-                firstMove = False
-                tree = GameTree(False, opponent_move[2], opponent_move[1])
-                best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), False, 10)
-                x, y = chosen_state.coordinate
-                write_move(x,y)
+        if opponent_move == None:
+            board[0][0] = 'o'
+            write_move(0,0)
         else:
-            tree.getNewRoot(opponent_move)
-            best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), True, 10)
-            x, y = chosen_state.coordinate
-            tree.root = chosen_state
-            write_move(x,y)
+            opp_x = opponent_move[2]
+            opp_y = opponent_move[1]
 
-
+            board[opp_x][opp_y] = 'o'
+            flag = False
+            for x in range(0,14):
+                for y in range(0,14):
+                    if board[x][y] is 'e':
+                        flag = True
+                        write_move(x,y)
+                        break
+                if flag is True:
+                    break
 
 
 
@@ -63,7 +54,7 @@ def write_move(column, row):
     file = "move_file"
     f = open(file, 'w')
 
-    move = "Terrance " + getColName(column) + " " + str(row+1) # converts to final output
+    move = "Brenda " + getColName(column) + " " + str(row+1) # converts to final output
     print move
     f.write(move)
 
@@ -74,7 +65,7 @@ def write_move(column, row):
 # polls for presence of our team's .go file at a rate of 50Hz
 def presenceGo():
     while (True):
-        if (os.path.exists("Terrance.go")):
+        if (os.path.exists("Brenda.go")):
             break
         #time.sleep(.05)
 
@@ -147,6 +138,6 @@ def getColName(col):
         return 'O'
     return "index out of bounds"
 
-# MAIN CALL
+
 if __name__ == "__main__":
     main()
