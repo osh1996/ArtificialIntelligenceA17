@@ -18,3 +18,8 @@ class GameTree:
         for state in successors:
             if state.coordinate[0] is x and state.coordinate[1] is y:
                 self.root = state
+
+    def printTree(self):
+        print(self.root.coordinate)
+        for state in self.root.successors:
+            self.printTree(state)

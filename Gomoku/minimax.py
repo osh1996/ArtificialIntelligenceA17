@@ -66,19 +66,32 @@ def evalGoalState(state):
                                   fwd_diag_coord, back_diag_list, back_diag_coord, win_string)
     if opponent_win is True:
         heuristic = -1
-    if win_string is True:
+    if we_win is True:
         heuristic = 1
 
     return heuristic
 
 def generateActions(state):
     actions = list()
+    coordinate = state.coordinate
+    flag = False
 
-    for x in range(0, 14):
-        for y in range(0, 14):
+    xx = state.coordinate[0]
+    yy = state.coordinate[1]
+
+    ## checks adjacent tiles
+    for x in range(xx-1, xx+1):
+        for y in range(yy-1, yy+1):
             if state.grid[x][y] is "e":
                 newAction = (x, y)
                 actions.append(newAction)
+                flag = True
+    if not flag:
+        for x in range(0,15):
+            for y in range(0,15):
+                if state.grid[x][y] is 'e':
+                    newAction = (x,y)
+                    actions.append(newAction)
     return actions
 
 

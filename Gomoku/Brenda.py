@@ -19,13 +19,14 @@ def main():
             board[opp_x][opp_y] = 'o'
             flag = False
             for x in range(0,14):
+                if flag is True:
+                    break
                 for y in range(0,14):
                     if board[x][y] is 'e':
                         flag = True
                         write_move(x,y)
+                        board[x][y] = 'o'
                         break
-                if flag is True:
-                    break
 
 
 

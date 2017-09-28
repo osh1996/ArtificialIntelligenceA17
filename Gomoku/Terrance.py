@@ -24,6 +24,7 @@ def main():
             else:
                 firstMove = False
                 tree = GameTree(False, opponent_move[2], opponent_move[1])
+                tree.getNewRoot(opponent_move)
                 best_value, chosen_state = minimax(tree.root, -float('inf'), float('inf'), False, 10)
                 x, y = chosen_state.coordinate
                 write_move(x,y)
