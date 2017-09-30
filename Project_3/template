@@ -1,6 +1,21 @@
 from keras.models import Sequential
 from keras.layers import Dense, Activation
+from sklearn.model_selection import train_test_split
+
 import numpy as np
+
+#Preprocessing Data
+imageData = np.load(images.npy)
+imageLabel = np.load(labels.npy).reshape(-1)
+
+nb_classes = 10
+flatData = imageData.flatten()
+hotLabel = np.eye(nb_classes)[imageLabel]
+
+#Randomly splitting up data
+x, x_Test, y, y_Test = train_test_split(flatData,hotLabel,test_size = 0.25, train_size= 0.75)
+x_Train, x_Val, y_Train, y_Val = train_test_split(x,y,test_size = 0.2 ,train_size = 0.8)
+
 
 # Model Template
 
