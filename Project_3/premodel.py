@@ -1,5 +1,6 @@
 from keras.models import Sequential
 from keras.layers import Dense, Activation
+from keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 
 import numpy as np
@@ -11,9 +12,10 @@ labelFile = "labels.npy"
 imageData = np.load(imageFile)
 imageLabel = np.load(labelFile)
 
-nb_classes = 10
+nb_classes = 9
 flatData = imageData.flatten()
-hotLabel = np.eye(nb_classes)[imageLabel]
+hotLabel = to_categorical(imageLabel, nb_classes)
+#hotLabel = np.eye(nb_classes)[imageLabel]
 
 #Randomly splitting up data
 x, x_Test, y, y_Test = train_test_split(flatData,hotLabel,test_size = 0.25, train_size= 0.75)
@@ -41,10 +43,11 @@ model.compile(optimizer='sgd',
               metrics=['accuracy'])
 
 # Train Model
-history = model.fit(x_train, y_train,
-                    validation_data = (x_val, y_val),
+history = model.fit(x_Train, y_Train,
+                    validation_data = (x_Val, y_Val),
                     epochs=10,
-                    batch_size=512)
+                    batch_size=512,
+                    verbose=1) 
 
 
 # Report Results
