@@ -4,12 +4,12 @@ from gamestate import GameState
 import parsing
 
 def minimax(state, alpha, beta, maximizing, depth, occupied):
+    actions = generateActions(state, occupied)  ##generate list of potential actions
     if depth == 0:
-        return evalGoalState(state), state
-    actions = generateActions(state, occupied)     ##generate list of potential actions
+        return evalGoalState(state), state, actions
     returnState = copy(state)
     if len(actions) == 0:      ##if board is full
-        return evalGoalState(state), returnState
+        return evalGoalState(state), returnState, actions
     if maximizing is True:
         for action in actions:
             new_action = copy(action)
@@ -17,7 +17,7 @@ def minimax(state, alpha, beta, maximizing, depth, occupied):
             new_grid[new_action[0]][new_action[1]] = "o"
             nextState = GameState(new_grid, new_action[0], new_action[1])
             state.successors.append(nextState)
-            newUtility, newState = minimax(nextState, alpha, beta, False, depth - 1, occupied)
+            newUtility, newState, a = minimax(nextState, alpha, beta, False, depth - 1, occupied)
             if newUtility > state.utility:
                 state.utility = newUtility
                 returnState = copy(nextState)
@@ -25,7 +25,7 @@ def minimax(state, alpha, beta, maximizing, depth, occupied):
                 alpha = state.utility
             if alpha >= beta:
                 break
-        return state.utility, returnState
+        return state.utility, returnState, actions
     else:
         nextState = 0
         for action in actions:
@@ -35,7 +35,7 @@ def minimax(state, alpha, beta, maximizing, depth, occupied):
             nextState = GameState(new_grid, new_action[0], new_action[1])
             returnState = nextState
             state.successors.append(nextState)
-            newUtility, newState = minimax(nextState, alpha, beta, True, depth - 1, occupied)
+            newUtility, newState, a = minimax(nextState, alpha, beta, True, depth - 1, occupied)
             if newUtility < state.utility:
                 state.utility = newUtility
             if state.utility < beta:
@@ -43,7 +43,7 @@ def minimax(state, alpha, beta, maximizing, depth, occupied):
                 returnState = newState
             if alpha >= beta:
                 break
-        return state.utility, returnState
+        return state.utility, returnState, actions
 
 
 def evalGoalState(state):

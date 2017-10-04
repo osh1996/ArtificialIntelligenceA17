@@ -122,7 +122,12 @@ def topPriority():
     l.append('xxexx'[::-1])
     l.append('xxxex'[::-1])
     l.append('oxxxxe'[::-1])
+    return l
+
+def loseInTwo():
+    l = list()
     l.append('eexxxe')
+    l.append('exxxee')
     return l
 
 # returns a list of sequences that allow us to win next move
@@ -207,7 +212,7 @@ def checkBoard(rows, cols, fwd_diag, fwd_diag_coord, back_diag, back_diag_coord,
     if row_result and col_result and fwd_result and back_result is None:
         return False
     else:
-        return True
+        return
 
 #testing stuff
 
