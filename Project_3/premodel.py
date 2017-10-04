@@ -2,19 +2,20 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
-
 import numpy as np
 
 imageFile = "images.npy"
 labelFile = "labels.npy"
 
 #Preprocessing Data
-imageData = np.load(imageFile)
-imageLabel = np.load(labelFile)
+imageData = np.load(imageFile) #loads image files
+imageLabel = np.load(labelFile) #loads label files
 
-nb_classes = 9
-flatData = imageData.flatten()
-hotLabel = to_categorical(imageLabel, nb_classes)
+nb_classes = 10 #goes from 0 - 9 so 10 classes total
+flatData = imageData.flatten() #flattens data into a 1D vector
+print(flatData.size)
+hotLabel = to_categorical(imageLabel, nb_classes) #turns labels into hotLabels
+print(hotLabel.size)
 #hotLabel = np.eye(nb_classes)[imageLabel]
 
 #Randomly splitting up data
