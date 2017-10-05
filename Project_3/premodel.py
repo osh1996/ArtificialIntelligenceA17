@@ -10,27 +10,17 @@ labelFile = "labels.npy"
 
 #Preprocessing Data
 imageData = np.load(imageFile)
-#print(imageData.shape)
-np.reshape(imageData, (6500,784)) #reshapes the array
-#print(a.shape)
+imageData = np.reshape(imageData,(6500, 784))
 imageLabel = np.load(labelFile) #loads label files
 
 nb_classes = 10 #goes from 0 - 9 so 10 classes total
-
 hotLabel = to_categorical(imageLabel, nb_classes) #turns labels into hotLabels
 
 #Randomly splitting up data
 
-x, x_Test, y, y_Test = train_test_split(imageData,hotLabel,test_size = 0.25, train_size= 0.75)
-x_Train, x_Val, y_Train, y_Val = train_test_split(x,y,test_size = 0.2 ,train_size = 0.8)
-# print(x.shape)
-# print(x_Test.shape)
-# print(y.shape)
-# print(y_Test.shape)
-# print(x_Train.shape)
-# print(x_Val.shape)
-# print(y_Train.shape)
-# print(y_Val.shape)
+x, x_Test, y, y_Test = train_test_split(imageData, hotLabel,test_size = 0.25, train_size= 0.75)
+x_Train, x_Val, y_Train, y_Val = train_test_split(x, y , test_size = 0.2 ,train_size = 0.8)
+
 
 
 # Model Template
