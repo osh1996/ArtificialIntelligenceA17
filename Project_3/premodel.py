@@ -2,6 +2,7 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Conv2D, MaxPooling2D, Dropout, Flatten
 from keras.utils import to_categorical
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import numpy as np
 
@@ -51,7 +52,17 @@ history = model.fit(x_Train, y_Train,
                     verbose=1)
 
 
-# Report Results
+#graphing the model data
 
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train','test'], loc = 'upper left')
+plt.show()
+
+# Report Results
 print(history.history)
+
 #model.predict()
