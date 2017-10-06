@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from PIL import Image
 import numpy as np
+from keras.models import load_model
 
 imageFile = "images.npy"
 labelFile = "labels.npy"
@@ -55,6 +56,8 @@ history = model.fit(x_Train, y_Train,
                     batch_size=512,
                     verbose=1)
 
+#saving the model
+#model.save('trained_model.h5')
 
 #graphing the model data
 
