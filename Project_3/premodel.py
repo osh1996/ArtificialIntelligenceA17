@@ -5,6 +5,7 @@ from keras.utils import to_categorical
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import numpy as np
+from keras.models import load_model
 
 imageFile = "images.npy"
 labelFile = "labels.npy"
@@ -51,6 +52,8 @@ history = model.fit(x_Train, y_Train,
                     batch_size=512,
                     verbose=1)
 
+#saving the model
+#model.save('trained_model.h5')
 
 #graphing the model data
 
@@ -63,24 +66,24 @@ plt.legend(['train','test'], loc = 'upper left')
 plt.show()
 
 # Report Results
-confusion_matrix = np.zeros(shape=(10,10))
-print(history.history)
-results = model.predict(x_Test, batch_size=1625)
-print(confusion_matrix)
-for result in range(1625):
-    predicted_label = 0
-    actual_label = 0
-    for i in range(10):
-        if results[result,i] is 1:
-            predicted_label = i
-            break
-    for i in range(10):
-        if y_Test[result,i] is 1:
-            actual_label = i
-            break
-    confusion_matrix[predicted_label][actual_label] += 1
+# confusion_matrix = np.zeros(shape=(10,10))
+# print(history.history)
+# results = model.predict(x_Test, batch_size=1625)
+# print(confusion_matrix)
+# for result in range(1625):
+#     predicted_label = 0
+#     actual_label = 0
+#     for i in range(10):
+#         if results[result,i] is 1:
+#             predicted_label = i
+#             break
+#     for i in range(10):
+#         if y_Test[result,i] is 1:
+#             actual_label = i
+#             break
+#     confusion_matrix[predicted_label][actual_label] += 1
 
-print(confusion_matrix)
+#print(confusion_matrix)
 print("done")
 
 
