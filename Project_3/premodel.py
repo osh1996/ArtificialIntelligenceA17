@@ -4,10 +4,16 @@ from keras.layers import Dense, Activation, Conv2D, MaxPooling2D, Dropout, Flatt
 from keras.utils import to_categorical
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from PIL import Image
 import numpy as np
 
 imageFile = "images.npy"
 labelFile = "labels.npy"
+
+def printImage(image, filename):
+    image = image.reshape((28,28)).astype('uint8') * 255
+    im = Image.fromarray(image)
+    im.save(filename)
 
 #Preprocessing Data
 imageData = np.load(imageFile)
@@ -21,8 +27,6 @@ hotLabel = to_categorical(imageLabel, nb_classes) #turns labels into hotLabels
 
 x, x_Test, y, y_Test = train_test_split(imageData, hotLabel,test_size = 0.25, train_size= 0.75)
 x_Train, x_Val, y_Train, y_Val = train_test_split(x, y , test_size = 0.2 ,train_size = 0.8)
-
-
 
 # Model Template
 
@@ -63,24 +67,39 @@ plt.legend(['train','test'], loc = 'upper left')
 plt.show()
 
 # Report Results
-confusion_matrix = np.zeros(shape=(10,10))
+
 print(history.history)
 results = model.predict(x_Test, batch_size=1625)
-print(confusion_matrix)
+confusion = np.zeros(shape=(10,10))
+print(confusion)
+
+wrong_count = 0
+
 for result in range(1625):
     predicted_label = 0
     actual_label = 0
-    for i in range(10):
-        if results[result,i] is 1:
-            predicted_label = i
-            break
-    for i in range(10):
-        if y_Test[result,i] is 1:
-            actual_label = i
-            break
-    confusion_matrix[predicted_label][actual_label] += 1
 
-print(confusion_matrix)
-print("done")
+    max_predicted = 0
+    max_actual = 0
+    for i in range(10):
+        if results[result,i] > max_predicted:
+            max_predicted = results[result,i]
+            predicted_label = i
+    for i in range(10):
+        if y_Test[result,i] > max_actual:
+            max_actual = y_Test[result,i]
+            actual_label = i
+    confusion[predicted_label][actual_label] += 1
+    if wrong_count < 3:
+        if predicted_label is not actual_label:
+            image = x_Test[result]
+            filename = 'image' + str(wrong_count+1) + '.jpg'
+            printImage(image, filename)
+            print (filename + ': Predicted = ' + str(results[result]) + ' ;  Actual = ' + str(y_Test[result]))
+            wrong_count += 1
+
+## PREDICTED LABEL IS Y AXIS OF PRINTED ARRAY
+
+print(confusion)
 
 
