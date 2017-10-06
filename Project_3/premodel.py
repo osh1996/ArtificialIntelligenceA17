@@ -66,18 +66,21 @@ plt.show()
 confusion_matrix = np.zeros(shape=(10,10))
 print(history.history)
 results = model.predict(x_Test, batch_size=1625)
+print(confusion_matrix)
 for result in range(1625):
     predicted_label = 0
     actual_label = 0
     for i in range(10):
-        if results[result][i] is 1:
+        if results[result,i] is 1:
             predicted_label = i
             break
     for i in range(10):
-        if y_Test[result][i] is 1:
-            acutal_label = i
+        if y_Test[result,i] is 1:
+            actual_label = i
             break
     confusion_matrix[predicted_label][actual_label] += 1
+
 print(confusion_matrix)
+print("done")
 
 
