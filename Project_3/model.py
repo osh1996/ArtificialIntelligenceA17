@@ -1,24 +1,17 @@
-import keras
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Conv2D, MaxPooling2D, Dropout, Flatten
 from keras.utils import to_categorical
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from PIL import Image
 import numpy as np
-from keras.models import load_model
+
 
 imageFile = "images.npy"
 labelFile = "labels.npy"
 
-def printImage(image, filename):
-    image = image.reshape((28,28)).astype('uint8') * 255
-    im = Image.fromarray(image)
-    im.save(filename)
-
 #Preprocessing Data
-imageData = np.load(imageFile)
-imageData = np.reshape(imageData,(6500, 784))
+imageData = np.load(imageFile) #loads image files
+imageData = np.reshape(imageData,(6500, 784)) #reshapes image files into vectors
 imageLabel = np.load(labelFile) #loads label files
 
 nb_classes = 10 #goes from 0 - 9 so 10 classes total
@@ -34,12 +27,13 @@ x_Train, x_Val, y_Train, y_Val = train_test_split(x, y , test_size = 0.2 ,train_
 model = Sequential() # declare model
 model.add(Dense(800, input_shape=(28*28, ), kernel_initializer='he_normal')) # first layer
 model.add(Activation('selu'))
+
 model.add(Dense(400))
 model.add(Activation('selu'))
+
 model.add(Dense(400))
 model.add(Activation('tanh'))
-# model.add(Dense(32))
-# model.add(Activation('selu'))
+
 
 model.add(Dense(10, kernel_initializer='he_normal')) # last layer
 model.add(Activation('softmax'))
@@ -53,7 +47,7 @@ model.compile(optimizer='sgd',
 history = model.fit(x_Train, y_Train,
                     validation_data = (x_Val, y_Val),
                     epochs=15,
-                    batch_size=512,
+                    batch_size=256,
                     verbose=1)
 
 #saving the model
@@ -71,12 +65,8 @@ plt.show()
 
 # Report Results
 
-print(history.history)
-results = model.predict(x_Test, batch_size=1625)
-confusion = np.zeros(shape=(10,10))
-print(confusion)
-
-wrong_count = 0
+results = model.predict(x_Test, batch_size=1625) #for making the confusion matrix
+confusion = np.zeros(shape=(10,10)) #empty confusion matrix
 
 for result in range(1625):
     predicted_label = 0
@@ -93,13 +83,6 @@ for result in range(1625):
             max_actual = y_Test[result,i]
             actual_label = i
     confusion[predicted_label][actual_label] += 1
-    if wrong_count < 3:
-        if predicted_label is not actual_label:
-            image = x_Test[result]
-            filename = 'image' + str(wrong_count+1) + '.jpg'
-            printImage(image, filename)
-            print (filename + ': Predicted = ' + str(results[result]) + ' ;  Actual = ' + str(y_Test[result]))
-            wrong_count += 1
 
 ## PREDICTED LABEL IS Y AXIS OF PRINTED ARRAY
 
